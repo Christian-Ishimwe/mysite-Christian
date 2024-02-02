@@ -1,34 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');   
 *{
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 body{
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #00100B, #0A593C);
+    /* background-color: #0A593C; */
+}
+
+header{
     background-color: #00100B;
-    padding: 2rem 2.6rem;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    padding: .8rem 4rem;
+    position: sticky;
+    top: 0;
 }
 header nav ul{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    column-gap: 40px;
     list-style: none;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-family: sans-serif;
-
-}
-header nav ul a{
-    color: #fff;
-    text-decoration: none;
-    transition: all .4s;
-}
-header nav ul a:hover{
-    opacity: 0.7;
 }
 .login{
+    padding: .4rem 1.2rem;
     background-color: gold;
     color: #00100B;
-    padding: .4rem;
-    border-radius: 0 10px 0px 10px;
+    border-radius: 0 10px 0 10px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+header nav ul a{
+    text-decoration: none;
+    color: #fff;
+}
+header nav ul a:hover{
+    opacity: 0.8;
+}
+div#homepage{
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+
+}
+div#homepage section{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+}
+div#homepage section p{
+    /* background: linear-gradient(to right, #0A593C, #32DD2E); */
+    color: #fff;
+}
+div#homepage section a{
+    background-color: #32DD2E;
+    margin-top: 1.5rem;
+    color: #00100B;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    width: 150px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    border-radius: 0 10px 0 10px;
     font-weight: 600;
+}
+img{
+    width: 300px;
+    border-radius: 50%;
+    height: 300px;
+    object-fit: cover;
+    background: linear-gradient(to right, #0A593C, #1d591b);
 }
