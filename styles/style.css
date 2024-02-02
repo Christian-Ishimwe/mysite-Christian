@@ -46,6 +46,7 @@ div#homepage{
     display: flex;
     justify-content: space-between;
     place-items: center;
+   
 
 }
 div#homepage section{
@@ -55,9 +56,14 @@ div#homepage section{
     place-items: center;
     justify-content: center;
 }
+
 div#homepage section p{
     /* background: linear-gradient(to right, #0A593C, #32DD2E); */
     color: #fff;
+    text-align: center;
+    width: 60%;
+    line-height: 1.5;
+    padding: .5rem .5rem;
 }
 div#homepage section a{
     background-color: #32DD2E;
