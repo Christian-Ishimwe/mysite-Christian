@@ -5,13 +5,13 @@
     padding: 0;
 }
 body{
+
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(to right, #00100B, #0A593C);
-    /* background-color: #0A593C; */
 }
 
 header{
-    background-color: #00100B;
+    background: linear-gradient(to right, #00100B, #0A593C);
     display: flex;
     place-items: center;
     justify-content: center;
@@ -27,8 +27,7 @@ header nav ul{
 }
 .login{
     padding: .4rem 1.2rem;
-    background-color: gold;
-    color: #00100B;
+    background: linear-gradient(to right, #0A593C, #1d591b);
     border-radius: 0 10px 0 10px;
     width: 100px;
     justify-content: center;
