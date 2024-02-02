@@ -85,3 +85,14 @@ img{
     object-fit: cover;
     background: linear-gradient(to right, #0A593C, #1d591b);
 }
+#projects{
+    width: 100%;
+}
+#projects div.container{
+    height: 300px;
+
+}
+#projects div.container div.img{
+    background-color: #fff;
+    width: 100px;
+}
