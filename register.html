@@ -8,7 +8,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
     rel="stylesheet"
 />
-    <title>Login - My Brand</title>
+    <title>Register - My Brand</title>
 </head>
 <body>
     <header>
@@ -22,14 +22,14 @@
                     <li><a href="./blogs.html">Blogs</a></li>
                
             </ul>
-            <a href="./login.html" class="login">Login</a>
+            <a href="./login.html" class="login">Register</a>
         </nav>
     </header>
     <section id="login">
         
         <div>
             <form action="#">
-                <h2>Login</h2>
+                <h2>Register</h2>
                 <div class="field-set">
                     <label for="email">Email</label>
                     <input type="email" name="email" placeholder="Email">
@@ -37,11 +37,16 @@
                 <div class="field-set">
                     <label for="password">Password</label>
                     <input type="password" name="password" placeholder="Password">
-                    <a href="#">Forget Password?</a>
+                    <!-- <a href="#">Forget Password?</a> -->
                 </div>
-                <button type="submit" id="subBtn">Login</button>
+                <div class="field-set">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" name="cpassword" placeholder="Confirm Password">
+                    <!-- <a href="#">Forget Password?</a> -->
+                </div>
+                <button type="submit" id="subBtn">Sign up</button>
                 <div class="login-options">
-                    <h5 style="text-align: center;">Login By</h5>
+                    <h5 style="text-align: center;">or Register By</h5>
                     <div>
                         <a href="#"><i class="ri-google-line"></i></a>
                         <a href="#"><i class="ri-github-fill"></i></a>  
@@ -53,7 +58,7 @@
             </form>
            
         </div>
-        <p class="sign-up">Don’t have account? <a href="./register.html">Signup now</a></p>
+        <p class="sign-up">Already have account? <a href="./login.html">login now</a></p>
     </section>
     <footer>
        <div class="icons">
