@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
     <title>Home - My Brand</title>
 </head>
 <body>
@@ -12,8 +16,8 @@
             <ul>
                 
                     <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">About Me</a></li>
-                    <li><a href="#">Skills</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#">Portofolio</a></li>
                     <li><a href="#">Blogs</a></li>
                
@@ -21,7 +25,7 @@
             <a href="#" class="login">Login</a>
         </nav>
     </header>
-    <section id="homeintro">
+    <section id="home">
         <div class="content">
             <p>
                 Hi, I'm
@@ -30,7 +34,7 @@
                 I'm currently focused on  Web Applications, API’s and Database Management.
             </p>
             <div>
-                <a href="#" class="about">Learn More</a>
+                <a href="#about" class="about">Learn More</a>
                 <a href="#">Get Cv</a>
             </div>
         </div>
@@ -38,5 +42,119 @@
             <img src="./images/homebg.png" alt="My Picture" class="trapezium-content">
         </div>
     </section>
+    <section id="about">
+        <div class="content">
+            <h2>About Me</h2>
+            <p>
+              
+            
+            A Software Developer interested in Web Applications, API’S and Database Management.Along with my technical skill sets, I possess clear verbal and written communication skills and in due time, am capable enough to do the assigned presentation and solve problems. I am always eager to learn more and improve my skills in various aspects of my career along with the organization.
+            </p>
+        </div>
+        <div class="img-container">
+            <img src="./images/homebg.png" alt="My Picture" class="trapezium-content">
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="content">
+            <h2>Skill Sets</h2>
+            <p>
+                Hello, I'm Christian, and I bring a diverse set of skills and experiences to the table. With a passion for software development, I have honed my abilities through practical applications and continuous learning.
+            </p>
+        </div>
+        <div class="skill-container">
+            <div>
+                <span>HTML</span>
+            </div>
+
+            <div>
+                <span>CSS</span>
+            </div>
+
+            <div>
+                <span>PYTHON</span>
+            </div>
+
+            <div>
+                <span>FLASK</span>
+            </div>
+
+            <div>
+                <span>DJANGO</span>
+            </div>
+
+            <div>
+                <span>FAST API</span>
+            </div>
+
+            <div>
+                <span>CI/CD</span>
+            </div>
+        </div>
+    </section>
+    <section id="contacts">
+        <div class="socials">
+            <h2>
+                Send The email, I will Reply to you In The Mean Time
+            </h2>
+            <div class="contacts">
+                <div class="contact-container">
+                    <div>
+                        <i class="ri-phone-fill"></i> <span>+250788841091</span>
+                    </div>
+                   <div>
+                    <i class="ri-github-fill"></i> <span>chriscoder</span>
+                   </div>
+                   <div>
+                    <i class="ri-mail-line"></i> <span>christianinja3@gmail.com</span>
+                   </div>
+                    <div>
+                        <i class="ri-linkedin-box-line"></i> <span>Christian Ishimwe</span>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form action="#">
+            <div class="field-set">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Name" name="name">
+            </div>
+            <div class="field-set">
+                <label for="tel">Telephone</label>
+                <input type="tel" placeholder="Your Telephone" name="tel">
+            </div>
+            <div class="field-set">
+                <label for="subject">Subject</label>
+                <input type="text" placeholder="The Subject" name="subject">
+            </div>
+            <div class="field-set">
+                <label for="subject">Message</label>
+                <textarea name="subject" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" id="subBtn">Send</button>
+        </form>
+        </div>
+        
+        
+        <div>
+
+        </div>
+    </section>
+    <footer>
+       <div class="icons">
+            <a href="#"><i class="ri-github-fill"></i></a>
+            <a href="#"><i class="ri-mail-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+            <!-- <a href="#"><i class="ri-github-fill"></i></a> -->
+       </div> 
+       <div class="attr">
+            <p>Christian Ishimwe 2024</p>
+       </div>
+    </footer>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

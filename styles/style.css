@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400;500&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -24,7 +23,7 @@ nav{
     z-index: 1;
     margin-bottom: 50px;
 }
-nav a,  #homeintro .content div a{
+nav a,  #home .content div a{
     color: #000;
     text-decoration: none;
     font-size: 14px;
@@ -42,7 +41,7 @@ nav ul{
     display: flex;
 }
 
-.login, #homeintro .content div a.about{
+.login, #home .content div a.about{
     color: #fff;
     background-color: #1976D2;
     min-width: 100px;
@@ -56,7 +55,7 @@ nav a:hover{
 
     color: #1976D2;
 }
-#homeintro{
+#home, #about, #skills, #contacts{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -65,33 +64,34 @@ nav a:hover{
     margin-top: 50px;
    padding: 2rem 5rem;
 }
-#homeintro .content{
+#home .content, #about .content, #skills .content, .socials{
     width: 400px;
    display: flex;
    flex-direction: column;
     row-gap: .8rem;
 
 }
-#homeintro .content p{
+#home .content p{
     font-size: 26px;
 }
-#homeintro .content div{
+#home .content div{
     display: flex;
     justify-content: space-around;
 }
 
-#homeintro .content div a{
+#home .content div a{
     border: 2px solid black;
 }
-#homeintro .content div a.about{
+#home .content div a.about{
     border: none;
 }
-#homeintro .content span{
+#home .content span{
     display: block;
     color: #1976D2;
     font-size: 36px;
 
 }
+
 div.img-container{
     /* border: 1px solid black; */
     background-color: #1976D2;
@@ -107,4 +107,142 @@ div.img-container img{
     height: 350px;
     width: 400px;
    
+}
+#about{
+    background-color: #e0dddd;;
+}
+#about .content h2{
+    color: #1976D2;
+}
+#skills {
+    background-color: white;
+}
+div.skill-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: .8;
+
+}
+div.skill-container div{
+    background-color: #D9D9D9;
+    font-weight: 500;
+    padding: .4rem .2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #D9D9D9;
+}
+div.skill-container div span{
+    place-items: center;
+}
+div.skill-container div:hover{
+    background-color: #fff;
+    
+}
+
+.socials h2{
+    display: block ;
+    text-align: center;
+    margin-bottom: 40px;
+}
+div.contacts div.contact-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.4rem;
+    font-weight: 500;
+}
+
+div.contacts div.contact-container div{
+    display: flex;
+    flex-direction: row;
+    column-gap: .8rem;
+    place-items: center;
+    font-weight: 500;
+}
+
+div.contact-form {
+    background-color: #fff;
+    padding: .8rem 1.8rem;
+    border-radius: 10px;
+    min-width: 400px;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 10px;
+    width: 100%;
+}
+form div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+form label{
+    font-weight: 500;
+    font-size:14px;
+}
+form input, form textarea{
+    background-color: #D9D9D9;
+    border: none;
+    padding: .5rem;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+form input:focus{
+   color: #000;
+   font-weight: 520;
+  
+}
+
+form textarea{
+    height: 80px;
+    resize: none;
+}
+form button{
+    width: 30%;
+    border: none;
+    background-color: #1976D2;
+    color: #D9D9D9;
+    border-radius: 5px;
+    padding: .4rem;
+    cursor: pointer;
+    margin-top: .7rem;
+    transition: all 0.2s;
+
+}
+form button:hover{
+    color: #000;
+    opacity: 0.9;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: .4rem  4rem;
+    box-shadow: 2px 2px 5px #a6a1a1;
+    background: #e0dddd;
+    place-items: center;
+}
+footer .icons{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.4rem;
+}
+footer .icons a{
+    font-size: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: .4rem ;
+    color: #000;
+    transition: all .4s;
+}
+footer .icons a:hover{
+    opacity: .7;
+}
+footer p{
+    font-weight: 550;
+    text-align: center;
 }
