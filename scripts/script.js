@@ -1,27 +1,15 @@
-// const sections = document.querySelectorAll('nav a');
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const nav = document.querySelector('nav');
 
-// // Function to check if an element is in the viewport
-// const isInViewport = (elem) => {
-//     const rect = elem.getBoundingClientRect();
-//     return (
-//         rect.top >= 0 &&
-//         rect.left >= 0 &&
-//         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//     );
-// };
-
-// // Function to handle scroll event
-// const handleScroll = () => {
-//     console.log(window.innerHeight)
-//     sections.forEach(section => {
-//         if (isInViewport(section)) {
-//             section.classList.add('highlight');
-//         } else {
-//             section.classList.remove('highlight');
-//         }
-//     });
-// };
-
-// // Add scroll event listener
-// window.addEventListener('scroll', handleScroll);
+    menuIcon.addEventListener('click', function() {
+        nav.classList.toggle('responsive');
+        if (nav.classList.contains('responsive')) {
+            // Add a class to the body to prevent scrolling when the menu is open
+            document.body.classList.add('menu-open');
+        } else {
+            // Remove the class when the menu is closed
+            document.body.classList.remove('menu-open');
+        }
+    });
+});

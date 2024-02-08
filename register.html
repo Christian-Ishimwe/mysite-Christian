@@ -8,6 +8,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
     rel="stylesheet"
 />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-FHlK9T/oBwTk5JNFwLOgTv2ui47zxwai04uHDCz3Vee20VlYrSGZPkYjXqlF6wzQ" crossorigin="anonymous">
     <title>Register - My Brand</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./index.html#about">About Me</a></li>
                     <li><a href="./index.html#skills">Skills</a></li>
-                    <li><a href="#">Portofolio</a></li>
+                    <li><a href="./portofolio.html">Portofolio</a></li>
                     <li><a href="./blogs.html">Blogs</a></li>
                
             </ul>
@@ -37,28 +38,47 @@
                 <div class="field-set">
                     <label for="password">Password</label>
                     <input type="password" name="password" placeholder="Password">
-                    <!-- <a href="#">Forget Password?</a> -->
+                    
                 </div>
                 <div class="field-set">
                     <label for="cpassword">Confirm Password</label>
                     <input type="password" name="cpassword" placeholder="Confirm Password">
-                    <!-- <a href="#">Forget Password?</a> -->
                 </div>
                 <button type="submit" id="subBtn">Sign up</button>
                 <div class="login-options">
                     <h5 style="text-align: center;">or Register By</h5>
                     <div>
-                        <a href="#"><i class="ri-google-line"></i></a>
-                        <a href="#"><i class="ri-github-fill"></i></a>  
+                        <button class="gsi-material-button">
+                            <div class="gsi-material-button-state"></div>
+                            <div class="gsi-material-button-content-wrapper">
+                              <div class="gsi-material-button-icon">
+<                           <i class="ri-google-line"></i>
+                              </div>
+                              <span class="gsi-material-button-contents">Sign up with Google</span>
+        
+                            </div>
+                          </button>
+                          <button class="gsi-material-button">
+                            <div class="gsi-material-button-state"></div>
+                            <div class="gsi-material-button-content-wrapper">
+                              <div class="gsi-material-button-icon">
+<                          <i class="ri-github-line"></i>
+                              </div>
+                              <span class="gsi-material-button-contents">Sign up with Github</span>
+        
+                            </div>
+                          </button>
+                        <!-- <a href="#"><i class="ri-google-line"></i></a>
+                        <a href="#"><i class="ri-github-fill"></i></a>   -->
                     </div>
                  
                 </div>
                 
-                <i></i>
+                <p class="sign-up">Already have account? <a href="./login.html">login now</a></p>
             </form>
            
         </div>
-        <p class="sign-up">Already have account? <a href="./login.html">login now</a></p>
+        
     </section>
     <footer>
        <div class="icons">
