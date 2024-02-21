@@ -4,51 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-    <title>Home - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="./scripts/scripts.js" defer></script>
+    <title>Dashboard - Home</title>
 </head>
 <body>
     <div class="container">
-       <nav>
-        <a href="#">Logoo</a>
-        <ul>
-            <li><a href="#"><i class="ri-home-line"></i> Home</a></li>
-            <li><a href="./templates/blogs.html"><i class="ri-news-line"></i>Blogs</a></li>
-            <li><a href="#"><i class="ri-pass-pending-line"></i> Portofolio</a></li>
-            <li><a href="#"><i class="ri-mail-volume-line"></i>Subscribers</a></li>
-            <li><a href="#"><i class="ri-mail-line"></i>Send Emails</a></li>
-            <li><a href="#"><i class="ri-tools-line"></i>Profile</a></li>
-        </ul>
-        <i class="ri-menu-line"></i>
-       </nav>
-        <main>
-            <div class="main__container">
-                <header>Welcome To Your Dashboard</header>
-            <div class="cards">
+        <nav>
+            <a href="./index.html">Logo</a>
+            <ul>
                 <div>
-                    Blogs
+                    <li><a href="./index.html"><i class="ri-home-3-line"></i>Home</a></li>
+                    <li><a href="./templates/blogs.html"><i class="ri-article-line"></i>Blogs</a></li>
+                    <li><a href="./templates/portofolio.html"><i class="ri-profile-fill"></i>Portofolio</a></li>
+                    <li><a href="#"><i class="ri-folder-user-line"></i>Subscribers</a></li>
+                    <li><a href="#"><i class="ri-mail-line"></i>Mails</a></li>
                 </div>
                 <div>
-                    Profile
+                    <li><a href="#"><i class="ri-tools-line"></i>Profile</a></li>
+                    <li><a href="#"><i class="ri-logout-circle-line"></i>Logout</a></li>
+                    
                 </div>
-                <div>
-                    Emails
-                </div>
-                <div>
-                    Subsribers
-                </div>
+            </ul>
+            <div class="icons">
+                <i class="ri-menu-2-line"></i>
+                <i class="ri-close-line"></i>
             </div>
-            <div>
 
+        </nav>
+        <main>
+            <div class="home__container">
+            <header>
+                <h1>Welcome to Your Dashboard</h1>
+            </header>
+            <div class="notifications">
+                <p>You have 5 new subscribers</p>
             </div>
+            <div class="overview">
+                <div class="overview__item">
+                    <i class="ri-news-line" class="overview__icon"></i>
+                    <span class="overview__count">10</span>
+                    <span class="overview__label">Blogs</span>
+                </div>
+                <div class="overview__item">
+                    <i class="ri-briefcase-line"  class="overview__icon"></i>
+                    <span class="overview__count">3</span>
+                    <span class="overview__label">Portofolio</span>
+                </div>
+                <div class="overview__item">
+                    <i class="ri-mail-line"  class="overview__icon" ></i>
+                    <span class="overview__count">14</span>
+                    <span class="overview__label">Subscribers</span>
+                </div>
             </div>
-            
+            <div class="home__info">
+                <div class="actions">
+                    <a href="#">Create New Blog</a>
+                    <a href="#">Update Portfolio</a>
+                    <a href="#">Send Email</a>
+                </div>
+                <div class="activities">
+                    <h2>Recent Activities</h2>
+                    <p>New blog post published</p>
+                    <p>Portfolio item updated</p>
+                    <p>New email received</p>
+                </div>
+                
+            </div>
+            </div>             
+
         </main>
     </div>
-  
-    <script src="./scripts/scripts.js"></script>
+   
 </body>
 </html>

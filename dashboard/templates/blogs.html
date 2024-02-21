@@ -1,137 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-    <title>Blogs - Dashboard</title>
-</head>
-<body>
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="../scripts/scripts.js" defer></script>
+    <title>Blogs - Home</title>
+  </head>
+  <body>
     <div class="container">
-       <nav>
-        <a href="#">Logoo</a>
+      <nav>
+        <a href="../index.html">Logo</a>
         <ul>
-            <li><a href="../index.html"><i class="ri-home-line"></i> Home</a></li>
-            <li><a href="#"><i class="ri-news-line"></i>Blogs</a></li>
-            <li><a href="#"><i class="ri-pass-pending-line"></i> Portofolio</a></li>
-            <li><a href="#"><i class="ri-mail-volume-line"></i>Subscribers</a></li>
-            <li><a href="#"><i class="ri-mail-line"></i>Send Emails</a></li>
-            <li><a href="#"><i class="ri-tools-line"></i>Profile</a></li>
+          <div>
+            <li>
+              <a href="../index.html"><i class="ri-home-3-line"></i>Home</a>
+            </li>
+            <li>
+              <a href="./templates/blogs.html"
+                ><i class="ri-article-line"></i>Blogs</a
+              >
+            </li>
+            <li>
+              <a href="./portofolio.html"><i class="ri-profile-fill"></i>Portofolio</a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-folder-user-line"></i>Subscribers</a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-mail-line"></i>Mails</a>
+            </li>
+          </div>
+          <div>
+            <li>
+              <a href="#"><i class="ri-tools-line"></i>Profile</a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-logout-circle-line"></i>Logout</a>
+            </li>
+          </div>
         </ul>
-        <i class="ri-menu-line"></i>
-       </nav>
-        <main>
-            <div class="blog__container">
-            <h2>Blogs</h2>
-
-            <div class="cards__blog">
-                <div class="blog__card">
-                        <div class="blog__img">
-                            <img src="../assets/Back1.jpg" alt="Blog Image">
-                        </div>
-                        <div class="blog__content">
-                            <h3>Blog Title 1</h3>
-                            <p>Blog summary 1</p>
-                        </div>
-                        <div class="blog__buttons">
-                            <a href="#" class="edit"><i class="ri-edit-line"></i></a>
-                            <a href="#" class="delete"><i class="ri-delete-bin-line"></i></a>
-                            <a href="#" class="view"><i class="ri-eye-line"></i></a>
-                        </div>
-
-                </div>
-                
-                <div class="blog__card">
-                    <div class="blog__img">
-                        <img src="../assets/Back1.jpg" alt="Blog Image">
-                    </div>
-                    <div class="blog__content">
-                        <h3>Blog Title 1</h3>
-                        <p>Blog summary 1</p>
-                    </div>
-                    <div class="blog__buttons">
-                        <a href="#" class="edit"><i class="ri-edit-line"></i></a>
-                        <a href="#" class="delete"><i class="ri-delete-bin-line"></i></a>
-                        <a href="#" class="view"><i class="ri-eye-line"></i></a>
-                    </div>
-
-                </div>
-                <div class="blog__card">
-                    <div class="blog__img">
-                        <img src="../assets/Back1.jpg" alt="Blog Image">
-                    </div>
-                    <div class="blog__content">
-                        <h3>Blog Title 1</h3>
-                        <p>Blog summary 1</p>
-                    </div>
-                    <div class="blog__buttons">
-                        <a href="#" class="edit"><i class="ri-edit-line"></i></a>
-                        <a href="#" class="delete"><i class="ri-delete-bin-line"></i></a>
-                        <a href="#" class="view"><i class="ri-eye-line"></i></a>
-                    </div>
-
-                </div>
-                <div class="blog__card">
-                    <div class="blog__img">
-                        <img src="../assets/Back1.jpg" alt="Blog Image">
-                    </div>
-                    <div class="blog__content">
-                        <h3>Blog Title 1</h3>
-                        <p>Blog summary 1</p>
-                    </div>
-                    <div class="blog__buttons">
-                        <a href="#" class="edit"><i class="ri-edit-line"></i></a>
-                        <a href="#" class="delete"><i class="ri-delete-bin-line"></i></a>
-                        <a href="#" class="view"><i class="ri-eye-line"></i></a>
-                    </div>
-
-                </div>
-
-              
-            </div>
-            <div class="blogs__all">
-                <a href="#">All Blogs...</a>
-            </div>
-            </div>
-            <div class="blog__form">
-                <h2>Add Blog</h2>
-                <form action="#">
-                    <div class="form__field">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" placeholder="Enter the Blog Title" id="">
-                    </div>
-                    <div class="form__field">
-                        <label for="maincontent">Key Content</label>
-                        <input type="text" name="maincontent" placeholder="Summary" id="">
-                    </div>
-                    <div class="form__field">
-                        <label for="content">Content</label>
-                        <textarea name="content" id="" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="files">
-          
-          <div>
-            <label for="img">Image PNG/JPG</label>
-                        <input name="img" type="file" placeholder="Image PNG/JPG">
-          </div>            
-          <div>
-            <label for="published">Pubished</label> <input type="checkbox" name="published">
+        <div class="icons">
+          <i class="ri-menu-2-line"></i>
+          <i class="ri-close-line"></i>
         </div>
-        <div>
-
-            
-            <label for="comments">Comments</label> <input type="checkbox" name="comments">
-          </div>  
-                    </div>
-                </form>
-            </div>
-        </main>
+      </nav>
+      <main>
+        <div class="blog__container">
+          <header>
+            <h1>Blog Management</h1>
+          </header>
+          <ul class="blog__list">
+            <!-- <li class="blog__item">
+              <div class="blog__title">Blog Post Title 1</div>
+              <div class="blog__description">
+                Short description of the blog post.
+              </div>
+              <div class="blog__actions">
+                <a href="#"><i class="fas fa-eye"></i> View</a>
+                <a href="#"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+              </div>
+            </li>
+            <li class="blog__item">
+              <div class="blog__title">Blog Post Title 2</div>
+              <div class="blog__description">
+                Short description of the blog post.
+              </div>
+              <div class="blog__actions">
+                <a href="#"><i class="fas fa-eye"></i> View</a>
+                <a href="#"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+              </div>
+            </li>
+            <li class="blog__item">
+              <div class="blog__title">Blog Post Title 2</div>
+              <div class="blog__description">
+                Short description of the blog post.
+              </div>
+              <div class="blog__actions">
+                <a href="#"><i class="fas fa-eye"></i> View</a>
+                <a href="#"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+              </div>
+            </li>
+            <li class="blog__item">
+              <div class="blog__title">Blog Post Title 2</div>
+              <div class="blog__description">
+                Short description of the blog post.
+              </div>
+              <div class="blog__actions">
+                <a href="#"><i class="fas fa-eye"></i> View</a>
+                <a href="#"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+              </div>
+            </li> -->
+          </ul>
+          <div class="new-blog__form">
+            <form action="post" id="newBlogForm">
+              <input type="text" name="title" placeholder="Title" required />
+              <textarea
+                name="summary"
+                placeholder="Summary"
+                required
+              ></textarea>
+              <textarea
+                name="description"
+                placeholder="Description"
+                required
+              ></textarea>
+              <input type="file" name="image" accept="image/*" />
+              <label for="published">Publish:</label>
+              <input
+                type="checkbox"
+                id="published"
+                name="published"
+                value="published"
+              />
+              <label for="comments">Allow Comments:</label>
+              <input
+                type="checkbox"
+                id="comments"
+                name="comments"
+                value="comments"
+              />
+              <button type="submit">Create Blog</button>
+            </form>
+          </div>
+        </div>
+      </main>
     </div>
-  
-    <script src="./scripts/scripts.js"></script>
-</body>
+  </body>
 </html>

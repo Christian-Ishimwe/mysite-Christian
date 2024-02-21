@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+  <title>Edit Blog</title>
+<link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <header>Edit Blog</header>
+  <div class="new-blog__form">
+
+<form action="post" id="newBlogForm">
+    <input type="text" name="title" placeholder="Title" required />
+    <textarea name="summary" placeholder="Summary" required></textarea>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <label for="published">Publish:</label>
+    <input type="checkbox" id="published" name="published" value="published" />
+    <label for="comments">Allow Comments:</label>
+    <input type="checkbox" id="comments" name="comments" value="comments" />
+    <button type="submit">Update Blog</button>
+    </form>
+</div>
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const blogId = urlParams.get('id');
+        const form = document.querySelector('#newBlogForm');
+        const BlogList = JSON.parse(localStorage.getItem('Blogs'));
+
+        function getBlog() {
+            return BlogList.find((element) => element.id == blogId);
+        }
+
+        let blog = getBlog();
+        console.log(blog);
+        form.querySelector('input[name="title"]').value = blog['title'];
+        form.querySelector('textarea[name="summary"]').value = blog['summary'];
+        form.querySelector('textarea[name="description"]').value = blog['description'];
+        form.querySelector('input[name="published"]').checked = blog["published"];
+        form.querySelector('input[name="comments"]').checked = blog["commentsAllowed"];
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            blog['title'] = form.querySelector('input[name="title"]').value;
+            blog['summary'] = form.querySelector('textarea[name="summary"]').value;
+            blog['description'] = form.querySelector('textarea[name="description"]').value;
+            blog["published"] = form.querySelector('input[name="published"]').checked;
+            blog["commentsAllowed"] = form.querySelector('input[name="comments"]').checked;
+            localStorage.setItem('Blogs', JSON.stringify(BlogList));
+            console.log('Blog updated successfully:', blog);
+        });
+    });
+
+
+</script>
+</body>
+</html>
+
