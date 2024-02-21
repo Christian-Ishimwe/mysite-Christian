@@ -27,6 +27,7 @@ nav{
     flex-direction: column;
     position: sticky;
     top: 0;
+    width: 200px;
     justify-content: center;
     gap: 40px;
     z-index: 10;
@@ -163,13 +164,28 @@ header {
     margin-bottom: 10px;
 }
 
-.blog__actions {
+.blog__actions{
+    margin: 10px;
     text-align: right;
 }
-
-.blog__actions a {
+.blog__actions i{
     margin-left: 10px;
-    color: #007bff;
+    color: #000022;
+    font-size: 19px;
+    font-weight: 650;
+    cursor: pointer;
+}
+.blog__actions i.delete{
+    color: red;
+}
+.blog__actions a{
+    text-decoration: none;
+}
+.edit i{
+    color: green;
+}
+.view i{
+    color: blue;
 }
 .new-blog__form {
     background-color: #fff;
@@ -247,7 +263,9 @@ header {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
+    width: 300px;
     background-color: #f9f9f9;
+    height: 250px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

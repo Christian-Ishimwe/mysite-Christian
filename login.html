@@ -22,21 +22,23 @@
                     <li><a href="./blogs.html">Blogs</a></li>
                
             </ul>
-            <a href="./login.html" class="login">Login</a>
+            <a id="logoutButton" href="#" onclick="logout()">Logout</a>
+            <a href="./register.html" id="loginButton" class="login">Register</a>
         </nav>
     </header>
     <section id="login">
         
         <div>
-            <form action="#">
+            <form id="loginForm">
                 <h2>Login</h2>
+                <span class="err">Invalid Email Address or Password!</span>
                 <div class="field-set">
                     <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" name="email" id="loginEmail" placeholder="Email">
                 </div>
                 <div class="field-set">
                     <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" id="loginPassword" placeholder="Password">
                     <a href="#">Forget Password?</a>
                 </div>
                 <button type="submit" id="subBtn">Login</button>
@@ -84,6 +86,7 @@
             <p>Christian Ishimwe 2024</p>
        </div>
     </footer>
+    <script src="./scripts/forms.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

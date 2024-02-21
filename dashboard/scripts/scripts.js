@@ -1,13 +1,46 @@
-var form = document.getElementById("newBlogForm");
-var blogs= JSON.parse(localStorage.getItem('Blogs'))
-var portfolioItems = []
+const form = document.getElementById("newBlogForm");
+var blogs= JSON.parse(localStorage.getItem('Blogs')) || []
+var projects=JSON.parse(localStorage.getItem("Projects")) || []
 let blogContainer = document.querySelector(".blog__list")
+
+
 window.addEventListener("DOMContentLoaded", () =>{
-    console.log(blogs)
+  let blogLen=blogs.length
+  try{
     renderBlog()
+  }
+  finally{
+      document.getElementById("numBlogs").textContent=blogLen
+ document.getElementById("numPortofolio").textContent= projects.length
+  
+  }
+
+
+
 })
 
-form.addEventListener("submit", () => {
+function renderBlog() {
+  blogContainer.innerHTML = '';
+  blogs.forEach((element) => {
+    blogContainer.innerHTML += `
+         <li class="blog__item">
+              <div class="blog__title">${element['title']}</div>
+              <div class="blog__description">
+                ${element['summary']}
+              </div>
+              <div class="blog__actions">
+                  <a class='view' href="viewblog.html?id=${element["id"]}" target="_blank"><i class="ri-eye-line"></i></a>
+                  <a class='edit' href="editBlog.html?id=${element["id"]}" target="_blank"><i class="ri-edit-2-line"></i></a>
+                  <i class="ri-delete-bin-line delete"  onclick="deleteBlog('${element["id"]}')"></i>
+              </div>
+            </li>
+    `;
+  });
+
+}
+
+
+form.addEventListener("submit", (event) => {
             event.preventDefault();
             var title = form.querySelector('input[name="title"]').value;
             var summary = form.querySelector('textarea[name="summary"]').value;
@@ -29,7 +62,8 @@ form.addEventListener("submit", () => {
             localStorage.setItem('Blogs', JSON.stringify(blogs));
             form.reset();
     })
-function projectForm(){
+
+function projectForm(event){
     event.preventDefault()
     try {
         const title = document.getElementById('title').value;
@@ -67,24 +101,6 @@ const deleteBlog = (id) => {
   }
 };
 
-function renderBlog() {
-  blogContainer.innerHTML = '';
-  blogs.forEach((element) => {
-    blogContainer.innerHTML += `
-         <li class="blog__item">
-              <div class="blog__title">${element['title']}</div>
-              <div class="blog__description">
-                ${element['summary']}
-              </div>
-              <div class="blog__actions">
-                <a href="viewblog.html?id=${element["id"]}" target="_blank"><i class="fas fa-eye"></i> View</a>
-                 <a href="editBlog.html?id=${element["id"]}" target="_blank"><i class="fas fa-edit" onclick="editBlog('${element["id"]}')"></i> Edit</a>
-               <button onclick="deleteBlog('${element["id"]}')">Delete</button>
-              </div>
-            </li>
-    `;
-  });
-}
 
 
 

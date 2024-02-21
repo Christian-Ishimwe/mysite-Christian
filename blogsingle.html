@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Read Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .blog h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .blog p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .blog img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        button{
+            padding: 5px;
+            width: 50px;
+            cursor: pointer;
+            border: none;
+            color: #f0f0f0;
+            background-color: #333;
+            margin: .8rem;
+            border-radius: 10px;
+            transition: all .3s;
+        }
+        button:hover{
+            opacity: 0.9;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" onclick="backBlog()"><i class="ri-arrow-left-line"></i></button>
+        <div id="blogContainer"></div>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = urlParams.get('id');
+            const BlogList = JSON.parse(localStorage.getItem('Blogs'));
+            const title= document.querySelector("h1")
+            console.log(BlogList)
+            function getBlog() {
+                return BlogList.find((element) => element.id === blogId);
+            }
+
+            let blog = getBlog();
+            console.log("blogId:", blogId);
+            console.log("BlogList:", BlogList);
+
+            <!-- title.innerHTML= blog['title'] -->
+            const blogContainer = document.getElementById('blogContainer');
+            const blogDiv = document.createElement('div');
+            blogDiv.classList.add('blog');
+
+            const titleElement = document.createElement('h2');
+            titleElement.textContent = blog.title;
+            blogDiv.appendChild(titleElement);
+
+            const summaryElement = document.createElement('p');
+            summaryElement.textContent = blog.summary;
+            blogDiv.appendChild(summaryElement);
+
+            const descriptionElement = document.createElement('p');
+            descriptionElement.textContent = blog.description;
+            blogDiv.appendChild(descriptionElement);
+
+            if (blog.image) {
+                const imageElement = document.createElement('img');
+                imageElement.src = "./images/Back1.jpg";
+                imageElement.alt = blog.title;
+                blogDiv.appendChild(imageElement);
+            }
+            blogContainer.appendChild(blogDiv);
+        });
+        function backBlog() {
+                window.history.go(-1);
+            }
+    </script>
+</body>
+
+</html>

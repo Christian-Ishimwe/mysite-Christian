@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="./scripts/scripts.js" defer></script>
+    
     <title>Dashboard - Home</title>
 </head>
 <body>
@@ -43,12 +43,12 @@
             <div class="overview">
                 <div class="overview__item">
                     <i class="ri-news-line" class="overview__icon"></i>
-                    <span class="overview__count">10</span>
+                    <span class="overview__count" id="numBlogs"></span>
                     <span class="overview__label">Blogs</span>
                 </div>
                 <div class="overview__item">
                     <i class="ri-briefcase-line"  class="overview__icon"></i>
-                    <span class="overview__count">3</span>
+                    <span class="overview__count" id="numPortofolio">3</span>
                     <span class="overview__label">Portofolio</span>
                 </div>
                 <div class="overview__item">
@@ -59,8 +59,8 @@
             </div>
             <div class="home__info">
                 <div class="actions">
-                    <a href="#">Create New Blog</a>
-                    <a href="#">Update Portfolio</a>
+                    <a href="templates/blogs.html">Create New Blog</a>
+                    <a href="templates/portofolio.html">Update Portfolio</a>
                     <a href="#">Send Email</a>
                 </div>
                 <div class="activities">
@@ -75,6 +75,6 @@
 
         </main>
     </div>
-   
+<script src="./scripts/scripts.js"></script>
 </body>
 </html>

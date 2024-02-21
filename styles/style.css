@@ -578,7 +578,14 @@ div.blog_summary{
     background-color: #303030;
     opacity: 8%;
   }
-  
+.err{
+    background-color: rgb(238, 90, 90);
+    padding: .4rem;
+    margin: 1rem;
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+}
 
  @media screen and (max-width: 1000px) {
     body{
