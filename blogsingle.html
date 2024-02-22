@@ -33,12 +33,16 @@
 
         .blog p {
             margin: 10px 0;
-            color: #666;
+            color: #333;
         }
 
         .blog img {
-            max-width: 100%;
+           width: 100%;
             border-radius: 8px;
+            height: 300px;
+            object-fit: cover;
+            margin: .8rem 0;
+
         }
         button{
             padding: 5px;
@@ -54,6 +58,37 @@
         button:hover{
             opacity: 0.9;
         }
+        .userComments{
+            display: block;
+            border: 1px solid black;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 7px;
+        }
+        textarea{
+            width: 50%;
+            border: 2px solid black;
+            height: 70px;
+            border-radius: 10px;
+            padding: 10px;
+            resize: none;
+        }
+        .userComments img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        #commentBtn{
+            width: 150px;
+            height: 40px;
+        }
+        .comments-container{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+      
     </style>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
@@ -62,6 +97,21 @@
     <div class="container">
         <button type="button" onclick="backBlog()"><i class="ri-arrow-left-line"></i></button>
         <div id="blogContainer"></div>
+        <!-- <div id="comments">
+            <textarea id="userComment"></textarea>
+            <button id="commentBtn">Comment</button>
+            <div class="comments-container">
+                <div class="userComments">
+                    <img src="./images/homebg.png" alt="Image">
+                    <div class="UserContents">
+                        <p class="content">This is my comment on this blog.</p>
+                        <p><i>Ishimwe Christian</i></p>
+                        <p><i>15/02/2023</i></p>
+                    </div>
+                </div>
+            </div> -->
+           
+        </div>
     </div>
 
     <script>
@@ -70,11 +120,11 @@
             const blogId = urlParams.get('id');
             const BlogList = JSON.parse(localStorage.getItem('Blogs'));
             const title= document.querySelector("h1")
+            const commentsContainer = document.querySelector("div.comments-container")
             console.log(BlogList)
             function getBlog() {
                 return BlogList.find((element) => element.id === blogId);
             }
-
             let blog = getBlog();
             console.log("blogId:", blogId);
             console.log("BlogList:", BlogList);
@@ -87,6 +137,10 @@
             const titleElement = document.createElement('h2');
             titleElement.textContent = blog.title;
             blogDiv.appendChild(titleElement);
+            const imageElement = document.createElement('img');
+            imageElement.src = `./dashboard/assets/${blog.image}`
+            imageElement.alt = blog.title;
+            blogDiv.appendChild(imageElement);
 
             const summaryElement = document.createElement('p');
             summaryElement.textContent = blog.summary;
@@ -95,13 +149,8 @@
             const descriptionElement = document.createElement('p');
             descriptionElement.textContent = blog.description;
             blogDiv.appendChild(descriptionElement);
-
-            if (blog.image) {
-                const imageElement = document.createElement('img');
-                imageElement.src = "./images/Back1.jpg";
-                imageElement.alt = blog.title;
-                blogDiv.appendChild(imageElement);
-            }
+                
+            
             blogContainer.appendChild(blogDiv);
         });
         function backBlog() {

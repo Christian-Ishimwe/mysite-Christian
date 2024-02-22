@@ -5,11 +5,15 @@
     --tertairy-color--: #000022;
     --body-color--: #FBF5F3;
 }
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family:sans-serif;
+}
+body{
+    margin: 0;
 }
 div.container{
     width: 100%;
@@ -42,7 +46,7 @@ nav ul{
 nav ul div{
     display: grid;
     grid-template-columns: 1fr;
-    /* gap: 10px; */
+    /* gap: 10px;*/
 }
 nav a{
     text-decoration: none;
@@ -69,6 +73,20 @@ main{
     min-height:100vh;
     position: relative;
     padding: .8rem;
+    background-color: var(--primary-color--);
+}
+
+
+div.icons{
+    display: none;
+}
+.hidden{
+   display: none;
+}
+.open{
+    display: block;
+    width: 100%;
+    grid-column: 1 / span 3;
     background-color: var(--primary-color--);
 }
 .overview {
@@ -265,7 +283,7 @@ header {
     margin-bottom: 20px;
     width: 300px;
     background-color: #f9f9f9;
-    height: 250px;
+   height: max-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -301,3 +319,49 @@ header {
 .pcard .actions .delete-btn {
     background-color: #cc0000;
 }
+
+
+
+/* Smartphone */
+@media screen and (max-width: 768px){
+div.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+div.container nav{
+    background-color: var(--primary-color--);
+    height: auto;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 0;
+    flex-direction: row;
+    display: grid;
+    place-items: center;
+    position: sticky;
+}
+nav a{
+    grid-template-columns: auto;
+}
+nav ul{
+    display: flex;
+    gap: 0;
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    padding: 10px;
+}
+nav li a{
+    padding: .4rem 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+ 
+}
+
+
+    div.icons{
+    display: block;
+}
+}
+
+
+

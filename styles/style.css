@@ -586,7 +586,10 @@ div.blog_summary{
     border-radius: 5px;
     display: none;
 }
-
+#loginButton:hover{
+     color: var(--secondary-color);
+     opacity: 0.8;
+}
  @media screen and (max-width: 1000px) {
     body{
      width: 100%;

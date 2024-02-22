@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const Blogs = JSON.parse(localStorage.getItem('Blogs'))
     const publishedBlogs= Blogs.filter(blog => blog.published)
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const projects= JSON.parse(localStorage.getItem("Projects")) || []
+  
     console.log(Blogs)
     if (currentUser) {
         logoutLink.style.display = "inline-block";
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loginLink.style.display = "inline-block";
     }
     renderBlog(publishedBlogs);
+    renderBlog()
 });
 
 function logout() {
@@ -31,7 +34,7 @@ function renderBlog(blogs) {
         const blogImg = document.createElement("div");
         blogImg.classList.add("blog_img");
         const img = document.createElement("img");
-        img.src = "./images/Back1.jpg";
+        img.src = `./dashboard/assets/${article.image}`;
         img.alt = article.title;
         blogImg.appendChild(img);
         const blogTitle = document.createElement("div");

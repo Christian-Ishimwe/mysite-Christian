@@ -1,98 +1,110 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>View Blog</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .blog {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .blog h2 {
-      margin-top: 0;
-      color: #333;
-    }
-
-    .blog p {
-      margin: 10px 0;
-      color: #666;
-    }
-
-    .blog img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>View Blog</h1>
-    <div id="blogContainer"></div>
-  </div>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const blogId = urlParams.get('id');
-      const BlogList = JSON.parse(localStorage.getItem('Blogs'));
-
-      function getBlog() {
-        return BlogList.find((element) => element.id == blogId);
+  <head>
+    <title>View Blog</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
       }
 
-      let blog = getBlog();
-      console.log(blog);
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-      const blogContainer = document.getElementById('blogContainer');
-      const blogDiv = document.createElement('div');
-      blogDiv.classList.add('blog');
+      .blog {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+      }
 
-      const titleElement = document.createElement('h2');
-      titleElement.textContent = blog.title;
-      blogDiv.appendChild(titleElement);
+      .blog h2 {
+        margin-top: 0;
+        color: #333;
+      }
 
-      const summaryElement = document.createElement('p');
-      summaryElement.textContent = blog.summary;
-      blogDiv.appendChild(summaryElement);
+      .blog p {
+        margin: 10px 0;
+        color: #666;
+      }
 
-      const descriptionElement = document.createElement('p');
-      descriptionElement.textContent = blog.description;
-      blogDiv.appendChild(descriptionElement);
+      .blog img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+      img{
+        width: 100%;
+        margin: 20px 0;
+        height: 300px;
+        object-fit: cover;
+      
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div id="blogContainer"></div>
+    </div>
 
-      if (blog.image) {
-        const imageElement = document.createElement('img');
-        imageElement.src = blog.image;
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const blogId = urlParams.get("id");
+        const BlogList = JSON.parse(localStorage.getItem("Blogs"));
+
+        function getBlog() {
+          return BlogList.find((element) => element.id == blogId);
+        }
+
+        let blog = getBlog();
+        console.log(blog);
+
+        const blogContainer = document.getElementById("blogContainer");
+        const blogDiv = document.createElement("div");
+        blogDiv.classList.add("blog");
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = blog.title;
+        blogDiv.appendChild(titleElement);
+        const imageElement = document.createElement("img");
+        imageElement.src = `../assets/${blog.image}`;
+        console.log(blog.image);
         imageElement.alt = blog.title;
         blogDiv.appendChild(imageElement);
-      }
+        const summaryElement = document.createElement("p");
+        summaryElement.textContent = blog.summary;
+        blogDiv.appendChild(summaryElement);
 
-      const publishedElement = document.createElement('p');
-      publishedElement.textContent = `Published: ${blog.published ? 'Yes' : 'No'}`;
-      blogDiv.appendChild(publishedElement);
+        const descriptionElement = document.createElement("p");
+        descriptionElement.textContent = blog.description;
+        blogDiv.appendChild(descriptionElement);
 
-      const commentsElement = document.createElement('p');
-      commentsElement.textContent = `Comments Allowed: ${blog.commentsAllowed ? 'Yes' : 'No'}`;
-      blogDiv.appendChild(commentsElement);
+        const dateAdded = document.createElement("p");
+        dateAdded.textContent =`Date Added: ${blog.dateAdded}` ;
+        blogDiv.appendChild(dateAdded);
+          
 
-      blogContainer.appendChild(blogDiv);
-    });
-  </script>
-</body>
+
+        const publishedElement = document.createElement("p");
+        publishedElement.textContent = `Published: ${
+          blog.published ? "Yes" : "No"
+        }`;
+        blogDiv.appendChild(publishedElement);
+
+        const commentsElement = document.createElement("p");
+        commentsElement.textContent = `Comments Allowed: ${
+          blog.commentsAllowed ? "Yes" : "No"
+        }`;
+        blogDiv.appendChild(commentsElement);
+        blogContainer.appendChild(blogDiv);
+      });
+    </script>
+  </body>
 </html>
