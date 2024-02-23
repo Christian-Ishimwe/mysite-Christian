@@ -1,0 +1,32 @@
+.email {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.email-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.email-header-subject {
+    font-weight: bold;
+}
+
+.email-header-date {
+    color: #666;
+}
+
+.email-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.email-content img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px 0;
+}
