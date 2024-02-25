@@ -15,17 +15,22 @@
     <header>
         <nav>
             <ul>
-                
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#about">About Me</a></li>
-                    <li><a href="./index.html#skills">Skills</a></li>
-                    <li><a href="./portofolio.html">Portofolio</a></li>
-                    <li><a href="./blogs.html">Blogs</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#about">About Me</a></li>
+                <li><a href="./index.html#skills">Skills</a></li>
+                <li><a href="./portofolio.html">Portofolio</a></li>
+                <li><a href="./blogs.html" >Blogs</a></li>
+                <div>
+                    <a id="logoutButton" href="#" onclick="logout()">Logout</a>
+                    <a href="./login.html" id="loginButton" class="login">Login</a>
+                </div>
                
             </ul>
-            <a id="logoutButton" href="#" onclick="logout()">Logout</a>
-            <a href="./login.html" id="loginButton" class="login">Login</a>
-        </nav>
+        
+            <div class="menu-icon">
+                <i class="ri-menu-line" id="menuIcon"></i>
+                <i class="ri-close-line" id="closeIcon"></i>
+            </div>
     </header>
     <section id="login">
         
@@ -53,31 +58,18 @@
                 </div>
                 <button type="submit" id="subBtn">Sign up</button>
                 <div class="login-options">
-                    <h5 style="text-align: center;">or Register By</h5>
-                    <div>
-                        <button class="gsi-material-button">
-                            <div class="gsi-material-button-state"></div>
-                            <div class="gsi-material-button-content-wrapper">
-                              <div class="gsi-material-button-icon">
-<                           <i class="ri-google-line"></i>
-                              </div>
-                              <span class="gsi-material-button-contents">Sign up with Google</span>
-        
-                            </div>
-                          </button>
-                          <button class="gsi-material-button">
-                            <div class="gsi-material-button-state"></div>
-                            <div class="gsi-material-button-content-wrapper">
-                              <div class="gsi-material-button-icon">
-<                          <i class="ri-github-line"></i>
-                              </div>
-                              <span class="gsi-material-button-contents">Sign up with Github</span>
-        
-                            </div>
-                          </button>
-                        <!-- <a href="#"><i class="ri-google-line"></i></a>
-                        <a href="#"><i class="ri-github-fill"></i></a>   -->
+                    <h5 style="text-align: center;">Signup By</h5>
+                    <div class="icons-options">
+                        <div class="google">
+                            <i class="ri-google-line"></i> Signup With Google
+                        </div>
+                        <div class="github">
+                            <i class="ri-github-fill"></i> Signup With Github
+                        </div>
                     </div>
+                
+                
+                </div>
                  
                 </div>
                 
@@ -99,6 +91,7 @@
        </div>
     </footer>
     <script src="./scripts/Register.js"></script>
+    <script src="./scripts/Nav.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

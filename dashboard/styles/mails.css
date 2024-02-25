@@ -1,32 +1,101 @@
-.email {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
+div#email-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+}
+div.email-message{
+    display: grid;
+    grid-template-columns: 1fr 5fr 4fr;
+    place-items: center;
+    padding: .4rem .4rem;
+    position: relative;
+    background-color: #FBF5F3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+}
+div.email-review{
+    position: fixed;
+    background-color: #fff;
+    width: 500px;
+    top:0;
+    height:100%;
+    z-index: 111;
+    padding: .8rem .8rem;
+    right: -10000px;
+    overflow: scroll;
+    box-shadow: -5px 0 5px -5px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    transition: all .4s;
 }
 
-.email-header {
+div.email-review .email-header{
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
+    flex-direction: column;
+    gap: 10px;
+
 }
 
-.email-header-subject {
-    font-weight: bold;
+div.email-review{
+font-style: italic;
+font-size: 16px;
 }
 
-.email-header-date {
-    color: #666;
+p{
+    text-align: justify;
 }
-
-.email-header-actions {
-    display: flex;
-    align-items: center;
+div.email-icons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 20px;
+    padding: 0 10px;
 }
-
-.email-content img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+div.email-icons a{
+    text-decoration: none;
+    color: #005C69;
+}
+div.email-icons a:visited{
+    color: #005C69;
+}
+div.email-content{
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-left: 20px;
+}
+.showView{
+    right: 0;
+}
+div.email-subject, div.email-name{
+    font-weight: 600;
+}
+div.email-header i{
     display: block;
-    margin: 10px 0;
+    font-size: 20px;
+    text-align:center;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px){
+div.email-message{
+    grid-template-columns: 1fr 8fr;
+    gap: 1px
+}
+div.email-review{
+    width: 100%;
+}
+div.email-icons{
+    grid-template-columns: auto;
+    gap: 5px;
+}
+div.email-content{
+    grid-template-columns: auto;
+}
 }

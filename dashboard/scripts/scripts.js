@@ -1,6 +1,7 @@
 var blogs= JSON.parse(localStorage.getItem('Blogs')) || []
 var projects=JSON.parse(localStorage.getItem("Projects")) || []
 let blogContainer = document.querySelector(".blog__list")
+let messages= JSON.parse(localStorage.getItem("Messages")) || []
 window.addEventListener("DOMContentLoaded", () =>{
     document.getElementById('openNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.add('open');
@@ -10,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () =>{
             document.querySelector('nav ul').classList.remove('open');
         
         });
-
+       document.querySelector(".notifications p").innerHTML=`You have ${messages.length} Unreaded Messages`
 
 
   let blogLen=blogs.length

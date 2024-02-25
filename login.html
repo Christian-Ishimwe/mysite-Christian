@@ -12,19 +12,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#about">About Me</a></li>
-                    <li><a href="./index.html#skills">Skills</a></li>
-                    <li><a href="./portofolio.html">Portofolio</a></li>
-                    <li><a href="./blogs.html">Blogs</a></li>
-               
-            </ul>
-            <a id="logoutButton" href="#" onclick="logout()">Logout</a>
-            <a href="./register.html" id="loginButton" class="login">Register</a>
-        </nav>
+<nav>
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./index.html#about">About Me</a></li>
+        <li><a href="./index.html#skills">Skills</a></li>
+        <li><a href="./portofolio.html">Portofolio</a></li>
+        <li><a href="./blogs.html" >Blogs</a></li>
+        <a id="logoutButton" href="#" onclick="logout()">Logout</a>
+        <a href="./register.html" id="loginButton" class="login">Register</a>
+    </ul>
+
+    <div class="menu-icon">
+        <i class="ri-menu-line" id="menuIcon"></i>
+        <i class="ri-close-line" id="closeIcon"></i>
+    </div>
+</nav>
     </header>
     <section id="login">
         
@@ -44,28 +47,15 @@
                 <button type="submit" id="subBtn">Login</button>
                 <div class="login-options">
                     <h5 style="text-align: center;">Login By</h5>
-                    <div>
-                        <button class="gsi-material-button">
-                            <div class="gsi-material-button-state"></div>
-                            <div class="gsi-material-button-content-wrapper">
-                              <div class="gsi-material-button-icon">
-<                           <i class="ri-google-line"></i>
-                              </div>
-                              <span class="gsi-material-button-contents">Sign in with Google</span>
-        
-                            </div>
-                          </button>
-                          <button class="gsi-material-button">
-                            <div class="gsi-material-button-state"></div>
-                            <div class="gsi-material-button-content-wrapper">
-                              <div class="gsi-material-button-icon">
-<                          <i class="ri-github-line"></i>
-                              </div>
-                              <span class="gsi-material-button-contents">Sign in with Github</span>
-        
-                            </div>
-                          </button>
+                    <div class="icons-options">
+                       <div class="google">
+                        <i class="ri-google-line"></i> Signin With Google
+                       </div>
+                        <div class="github">
+                            <i class="ri-github-fill"></i> Signin With Github
+                        </div>
                     </div>
+                    
                  
                 </div>
                 <p class="sign-up">Don’t have account? <a href="./register.html">Signup now</a></p>
@@ -86,7 +76,10 @@
             <p>Christian Ishimwe 2024</p>
        </div>
     </footer>
+    <script src="./scripts/Nav.js"></script>
     <script src="./scripts/Login.js"></script>
+    <script src="./scripts/Contacts.js"></script>
+    <script src="https://kit.fontawesome.com/61b121e1cf.js" crossorigin="anonymous"></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

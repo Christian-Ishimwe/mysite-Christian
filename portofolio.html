@@ -13,16 +13,20 @@
 <body>
     <header>
         <nav>
-            <ul>
-                    <li><a href="./index.html" >Home</a></li>
-                    <li><a href="./index.html#about">About Me</a></li>
-                    <li><a href="./index.html#skills">Skills</a></li>
-                    <li><a href="./portofolio.html" class="active">Portofolio</a></li>
-                    <li><a href="./blogs.html" >Blogs</a></li>
-               
-            </ul>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#about">About Me</a></li>
+            <li><a href="./index.html#skills">Skills</a></li>
+            <li><a href="./portofolio.html" class="active">Portofolio</a></li>
+            <li><a href="./blogs.html" >Blogs</a></li>
             <a id="logoutButton" href="#" onclick="logout()">Logout</a>
             <a href="./login.html" id="loginButton" class="login">Login</a>
+          </ul>
+        
+          <div class="menu-icon">
+            <i class="ri-menu-line" id="menuIcon"></i>
+            <i class="ri-close-line" id="closeIcon"></i>
+          </div>
         </nav>
     </header>
     <section id="portofolio">
@@ -81,6 +85,7 @@
             <p>Christian Ishimwe 2024</p>
        </div>
     </footer>
+    <script src="./scripts/Nav.js"></script>
     <script src="./scripts/Projects.js"></script>
     <script src="./scripts/script.js"></script>
 </body>

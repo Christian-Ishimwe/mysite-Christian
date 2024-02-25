@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const publishedBlogs= Blogs.filter(blog => blog.published)
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const projects= JSON.parse(localStorage.getItem("Projects")) || []
-    const contactForm = document.getElementById("contactForm") || null
     console.log(Blogs)
     if (currentUser) {
         logoutLink.style.display = "inline-block";
@@ -52,6 +51,7 @@ function renderBlog(blogs) {
         const readMoreLink = document.createElement("a");
         readMoreLink.href = `./blogsingle.html?id=${article.id}`;
         readMoreLink.textContent = "read more..";
+         readMoreLink.classList.add("blog-link")
         blogSummary.appendChild(summaryText);
         blogSummary.appendChild(readMoreLink);
         blogArticle.appendChild(blogImg);
@@ -60,22 +60,3 @@ function renderBlog(blogs) {
         container.appendChild(blogArticle);
     });
 }
-
-contactForm.addEventListener("submit", (event) =>{
-    event.preventDefault()
-    const nameField = document.getElementById("name").value
-    const emailField= document.getElementById("email").value
-    const subject = document.getElementById("subject").value
-    const message = document.getElementById("message").value
-    const tel = (document.getElementById("phone") ?document.getElementById("phone").value :null )
-    let new_msg= {
-        name: nameField,
-        email: emailField,
-        tel: tel,
-        subject: subject,
-        message: message
-    }
-    alert(tel)
-    console.log(new_msg)
-    alert("Message sent successful!")
-})   
