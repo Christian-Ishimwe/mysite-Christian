@@ -2,6 +2,16 @@ const pForm= document.getElementById("portfolio-form")
 let projects=JSON.parse(localStorage.getItem("Projects")) || []
 window.addEventListener('DOMContentLoaded', ()=>{
     updateProject()
+     document.getElementById('openNav').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.add('open');
+             document.getElementById('closeNav').style.display="inherit"
+            document.getElementById('openNav').style.display="none"
+          });
+        document.getElementById('closeNav').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.remove('open');
+             document.getElementById('closeNav').style.display="none"
+            document.getElementById('openNav').style.display="inherit"
+            });
 })
 
 pForm.addEventListener("submit", (event) =>{

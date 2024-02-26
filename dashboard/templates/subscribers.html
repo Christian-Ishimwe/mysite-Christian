@@ -8,43 +8,63 @@
     
     <title>Dashboard - Home</title>
     <style>
-        .actions{
-            display: flex;
-            justify-content:center;
-            gap: 10px;
-            place-items: center;
-        }
-        .actions i.delete{
-            color: red;
-            cursor: pointer;
-        }
-        .actions i.view{
-            color: green;
-            cursor: pointer;
-        }
-    table {
+        .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    place-items: center;
+}
+
+.actions i.delete {
+    color: red;
+    cursor: pointer;
+}
+
+.actions i.view {
+    color: green;
+    cursor: pointer;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    }
-    
-    th, td {
+  
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+.home__container{
+    padding: 10px;
+}
+th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    }
-    
-    th {
+}
+
+th {
     background-color: #f2f2f2;
-    }
-    
-    tr:nth-child(even) {
+}
+
+tr:nth-child(even) {
     background-color: #f2f2f2;
-    }
-    
-    tr:hover {
+}
+
+tr:hover {
     background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        width: 100vw;
     }
+
+    th, td {
+        white-space: nowrap; /* Prevent line breaks in table cells */
+    }
+}
+
 </style>
 </head>
 <body>
@@ -56,7 +76,7 @@
                     <li><a href="../index.html"><i class="ri-home-3-line"></i>Home</a></li>
                     <li><a href="./blogs.html"><i class="ri-article-line"></i>Blogs</a></li>
                     <li><a href="./portofolio.html"><i class="ri-profile-fill"></i>Portofolio</a></li>
-                    <li><a href=""><i class="ri-folder-user-line"></i>Subscribers</a></li>
+                    <li><a href=""><i class="ri-folder-user-line"></i>Users</a></li>
                     <li><a href="./mails.html"><i class="ri-mail-line"></i>Mails</a></li>
                 </div>
                 <div>

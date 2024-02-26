@@ -34,6 +34,7 @@ nav{
     width: 200px;
     justify-content: center;
     gap: 40px;
+    padding: 10px;
     z-index: 10;
     /* padding: 0 .8rem; */
 }
@@ -232,7 +233,7 @@ header {
 }
 #projects-container{
     display: grid;
-    grid-template-columns: repeat(3,300px);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     place-items: center
 }
@@ -283,7 +284,10 @@ header {
     margin-bottom: 20px;
     width: 300px;
     background-color: #f9f9f9;
-   height: max-content;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -324,6 +328,9 @@ header {
 
 /* Smartphone */
 @media screen and (max-width: 768px){
+    main{
+        padding: 0;
+    }
 div.container{
     display: grid;
     grid-template-columns: 1fr;
@@ -356,10 +363,39 @@ nav li a{
     grid-template-columns: 1fr 4fr;
  
 }
-
-
-    div.icons{
+div.icons{
     display: block;
+}
+.overview{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.overview__item{
+    width: 100%;
+}
+.home__info{
+    grid-template-columns: auto;
+}
+.activities{
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 10px;
+}
+#closeNav{
+    display: none;
+}
+#projects-container{
+    grid-template-columns: auto;
+}
+.blog__container{
+    width: 100%;
+    padding: 10px;
+}
+.pcard{
+    width: 100%;
+}
+.new-blog__form{
+    padding: 10px;
 }
 }
 

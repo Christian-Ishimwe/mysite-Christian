@@ -5,17 +5,16 @@ let blogContainer = document.querySelector(".blog__list")
 
 
 window.addEventListener("DOMContentLoaded", () =>{
-    document.getElementById('openNav').addEventListener('click', function () {
+ document.getElementById('openNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.add('open');
-            
+             document.getElementById('closeNav').style.display="inherit"
+            document.getElementById('openNav').style.display="none"
           });
         document.getElementById('closeNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.remove('open');
-        
-        });
-
-
-
+             document.getElementById('closeNav').style.display="none"
+            document.getElementById('openNav').style.display="inherit"
+            });
   let blogLen=blogs.length
   try{
     renderBlog()

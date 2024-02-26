@@ -5,12 +5,14 @@ let messages= JSON.parse(localStorage.getItem("Messages")) || []
 window.addEventListener("DOMContentLoaded", () =>{
     document.getElementById('openNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.add('open');
-            
+             document.getElementById('closeNav').style.display="inherit"
+            document.getElementById('openNav').style.display="none"
           });
         document.getElementById('closeNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.remove('open');
-        
-        });
+             document.getElementById('closeNav').style.display="none"
+            document.getElementById('openNav').style.display="inherit"
+            });
        document.querySelector(".notifications p").innerHTML=`You have ${messages.length} Unreaded Messages`
 
 
