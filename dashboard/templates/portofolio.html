@@ -20,15 +20,15 @@
               <a href="../index.html"><i class="ri-home-3-line"></i>Home</a>
             </li>
             <li>
-              <a href="./blogs.html"
-                ><i class="ri-article-line"></i>Blogs</a
-              >
+              <a href="./blogs.html"><i class="ri-article-line"></i>Blogs</a>
             </li>
             <li>
               <a href="#"><i class="ri-profile-fill"></i>Portofolio</a>
             </li>
             <li>
-              <a href="./subscribers.html"><i class="ri-folder-user-line"></i>Subscribers</a>
+              <a href="./subscribers.html"
+                ><i class="ri-folder-user-line"></i>Users</a
+              >
             </li>
             <li>
               <a href="./mails.html"><i class="ri-mail-line"></i>Mails</a>
@@ -43,34 +43,62 @@
             </li>
           </div>
         </ul>
-       
-       <div class="icons">
-            <i class="ri-menu-2-line" id="openNav"></i>
-            <i class="ri-close-line" id="closeNav"></i>
+
+        <div class="icons">
+          <i class="ri-menu-2-line" id="openNav"></i>
+          <i class="ri-close-line" id="closeNav"></i>
         </div>
       </nav>
       <main>
-        
         <div class="blog__container">
           <header>
             <h1>Portofolio Management</h1>
           </header>
-          <div id="projects-container">
-
-          </div>
+          <div id="projects-container"></div>
           <div class="new-blog__form">
             <form id="portfolio-form" onsubmit="projectForm()">
-                <label for="title">Title:</label>
-                <input type="text" placeholder="Title" id="title" name="title" required><br><br>
-                <label for="description">Description:</label><br>
-                <textarea id="description" placeholder="Description" name="description" rows="4" required></textarea><br><br>
-                <label for="link">Link:</label>
-                <input type="url" id="link" placeholder="Link" name="link" required><br><br>
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image" accept="image/*" required><br><br>
-                <label for="languages">Languages Used:</label>
-                <input type="text" placeholder="Programming Language" id="languages" name="languages" required><br><br>
-                <button type="submit">Add Portfolio Item</button>
+              <label for="title">Title:</label>
+              <input
+                type="text"
+                placeholder="Title"
+                id="title"
+                name="title"
+                required
+              /><br /><br />
+              <label for="description">Description:</label><br />
+              <textarea
+                id="description"
+                placeholder="Description"
+                name="description"
+                rows="4"
+                required
+              ></textarea
+              ><br /><br />
+              <label for="link">Link:</label>
+              <input
+                type="url"
+                id="link"
+                placeholder="Link"
+                name="link"
+                required
+              /><br /><br />
+              <label for="image">Image:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                required
+              /><br /><br />
+              <label for="languages">Languages Used:</label>
+              <input
+                type="text"
+                placeholder="Programming Language"
+                id="languages"
+                name="languages"
+                required
+              /><br /><br />
+              <button type="submit">Add Portfolio Item</button>
             </form>
           </div>
         </div>

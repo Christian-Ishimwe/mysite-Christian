@@ -1,0 +1,30 @@
+const express = require("express")
+const router = express.Router()
+const {homePage, getUsers, getUser, deleteUser, createBlog, deleteBlog, getBlogs, getOneBlog, updateBlog}= require("../controllers/adminController")
+const {createProjects,updateProject, deleteProject , adminProjects, adminSingleProject} = require("../controllers/projectsController")
+const { getAllMessages, getUnreadMessages, deleteMessage, getSingleMessage, replyMessage, sendMailsToUsers } = require("../controllers/messageController")
+router.get('/', homePage) 
+router.get('/users', getUsers)
+router.get("/user/:id", getUser)
+router.delete("/user/:id", deleteUser)
+router.get("/blogs", getBlogs)
+router.get("/blog/:id", getOneBlog)
+router.patch("/blog/:id", updateBlog)
+router.post("/blogs", createBlog)
+router.delete("/blog/:id", deleteBlog)
+
+// Projects
+router.get("/projects", adminProjects)
+router.get("/projects/:id", adminSingleProject)
+router.post("/projects", createProjects)
+router.delete("/projects/:id", deleteProject )
+router.patch('/projects/:id', updateProject)
+
+// messages
+router.get("/messages", getAllMessages)
+router.get("/messages/unread", getUnreadMessages)
+router.get("/messages/:id", getSingleMessage)
+router.delete("/messages/:id", deleteMessage)
+router.post("/messages/:id", replyMessage)
+router.post('/email', sendMailsToUsers)
+module.exports=router

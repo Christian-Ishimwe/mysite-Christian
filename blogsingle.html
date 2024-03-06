@@ -58,37 +58,30 @@
         button:hover{
             opacity: 0.9;
         }
-        .userComments{
-            display: block;
-            border: 1px solid black;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 7px;
-        }
-        textarea{
-            width: 50%;
-            border: 2px solid black;
-            height: 70px;
-            border-radius: 10px;
-            padding: 10px;
-            resize: none;
-        }
-        .userComments img{
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        #commentBtn{
-            width: 150px;
-            height: 40px;
-        }
-        .comments-container{
+        div#comments{
             display: grid;
-            gap: 10px;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
         }
-      
+        div#comments form{
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+            width: 100%;
+            justify-content: center;
+        }
+         div#comments form input{
+            padding: 0 .4rem;
+            min-height: 40px;
+            font-size: 16px;
+            font-family: sans-serif;
+            border: none;
+            border-radius: 5px;
+            background-color: #D9D9D9;
+            border-bottom: 2px solid black;
+         }
+      div#comments button{
+       min-width: 100px;
+       height: 40px;
+      }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
@@ -98,20 +91,11 @@
         <button type="button" onclick="backBlog()"><i class="ri-arrow-left-line"></i></button>
         <div id="blogContainer"></div>
         <!-- <div id="comments">
-            <textarea id="userComment"></textarea>
-            <button id="commentBtn">Comment</button>
-            <div class="comments-container">
-                <div class="userComments">
-                    <img src="./images/homebg.png" alt="Image">
-                    <div class="UserContents">
-                        <p class="content">This is my comment on this blog.</p>
-                        <p><i>Ishimwe Christian</i></p>
-                        <p><i>15/02/2023</i></p>
-                    </div>
-                </div>
-            </div> -->
-           
-        </div>
+            <form action="#"><input type="text" placeholder="Enter your Comment"> <button type="submit">Comment</button></form>
+            <div class="comments">
+
+            </div>
+        </div> -->
     </div>
 
     <script>
@@ -145,13 +129,26 @@
             const summaryElement = document.createElement('p');
             summaryElement.textContent = blog.summary;
             blogDiv.appendChild(summaryElement);
+            
 
             const descriptionElement = document.createElement('p');
             descriptionElement.textContent = blog.description;
             blogDiv.appendChild(descriptionElement);
-                
-            
             blogContainer.appendChild(blogDiv);
+           
+            if(blog.commentsAllowed){
+                 const commentDiv = document.createElement("div")
+                commentDiv.id = 'comments';
+                commentDiv.innerHTML = `
+                <form action="#"><input type="text" placeholder="Enter your Comment"> <button type="submit">Comment</button></form>
+                <div class="comments">
+
+                </div>
+            `
+                blogContainer.appendChild(commentDiv)
+            }
+           
+            
         });
         function backBlog() {
                 window.history.go(-1);

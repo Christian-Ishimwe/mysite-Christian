@@ -57,6 +57,7 @@ nav ul{
     color: #fff;
     background-color: var(--primary-color);
     min-width: 100px;
+   
     text-align: center;
     border-radius: 5px;
 }
@@ -185,7 +186,8 @@ form{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    width: 100%;
+    width: 300px;
+    
 }
 form div{
     display: flex;
@@ -466,7 +468,10 @@ div.menu-icon{
      margin: 0 auto;
     }
 
+form{
+width: 100%;
 
+}
     nav a, #home .content div a {
         display: block;
         padding: 1rem;
