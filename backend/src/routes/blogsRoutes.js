@@ -5,8 +5,8 @@ const {getBlogs, getOneBlog,commentBlog} = require("../controllers/blogsControll
 /**
  * @swagger
  * tags:
- *   name: BlogsUser
- *   description: API endpoints for managing blog posts
+ *   name: Blogs
+ *   description: API endpoints for Blog Posts
  */
 
 /**
@@ -15,6 +15,7 @@ const {getBlogs, getOneBlog,commentBlog} = require("../controllers/blogsControll
  *   get:
  *     summary: Get all blogs
  *     description: Retrieve all blog posts.
+ *     tags: [Blogs]
  *     responses:
  *       200:
  *         description: Blog posts retrieved successfully.
@@ -28,6 +29,7 @@ router.get("/", getBlogs);
  *   get:
  *     summary: Retrieve a single blog post by ID
  *     description: Retrieve the content and details of a single blog post by providing its ID.
+ *     tags: [Blogs]
  *     parameters:
  *       - in: path
  *         name: id
@@ -49,6 +51,7 @@ router.get("/:id", getOneBlog);
  * /blogs/{id}:
  *   post:
  *     summary: Add a comment to a blog post
+ *     tags: [Blogs]
  *     description: Add a comment to a specific blog post by providing its ID in the URL and the comment content in the request body.
  *     parameters:
  *       - in: path

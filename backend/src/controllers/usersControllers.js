@@ -2,6 +2,7 @@
 const bcrypt= require("bcrypt")
 const jwt= require("jsonwebtoken")
 const {dbConnector}= require("../config/dbConnector")
+
 const User = require("../models/usersModel")
 const registerUser= async (req, res) =>{
     let {name, email, password} = req.body

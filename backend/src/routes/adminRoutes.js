@@ -3,25 +3,32 @@ const router = express.Router()
 const {homePage, getUsers, getUser, deleteUser, createBlog, deleteBlog, getBlogs, getOneBlog, updateBlog}= require("../controllers/adminController")
 const {createProjects,updateProject, deleteProject , adminProjects, adminSingleProject} = require("../controllers/projectsController")
 const { getAllMessages, getUnreadMessages, deleteMessage, getSingleMessage, replyMessage, sendMailsToUsers } = require("../controllers/messageController")
-
 /**
  * @swagger
  * tags:
  *   name: Admin
  *   description: API endpoints for admin activities
+ * securityDefinitions:
+ *   bearerAuth:
+ *     type: apiKey
+ *     name: Authorization
+ *     in: header
+ *     description: Use the format "Bearer {token}"
  */
 
- /**  @swagger
+/**
+ * @swagger
  * /admin/users:
  *   get:
  *     summary: Get all users
  *     description: Retrieve all users.
- *     tags: [Users]
+ *     tags: [Admin]
+ *     security:
+ *       - bearerAuth: []  # Require the "bearerAuth" token for this endpoint
  *     responses:
  *       200:
  *         description: Users retrieved successfully.
  */
-
 router.get("/users", getUsers);
 
 /**
@@ -30,7 +37,7 @@ router.get("/users", getUsers);
  *   get:
  *     summary: Get a single user
  *     description: Retrieve a single user by ID.
- *     tags: [Users]
+ *     tags: [Users, Admin]
  *     parameters:
  *       - in: path
  *         name: id
@@ -38,6 +45,8 @@ router.get("/users", getUsers);
  *         description: ID of the user to retrieve.
  *         schema:
  *           type: string
+ *     security:
+ *       - bearerAuth: []  # Require the "bearerAuth" token for this endpoint
  *     responses:
  *       200:
  *         description: User retrieved successfully.
@@ -53,7 +62,7 @@ router.get("/user/:id", getUser);
  *   delete:
  *     summary: Delete a user
  *     description: Delete a user by ID.
- *     tags: [Users]
+ *     tags: [Users, Admin]
  *     parameters:
  *       - in: path
  *         name: id
@@ -69,9 +78,6 @@ router.get("/user/:id", getUser);
  */
 
 router.delete("/user/:id", deleteUser);
-
-
-
 
 /**
  * @swagger

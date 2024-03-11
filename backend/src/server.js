@@ -1,5 +1,5 @@
 const express= require('express')
-const app = express()
+const createServer = require("./utils/server")
 const env=require("dotenv").config() 
 const userRoutes = require("./routes/usersRoutes")
 const projectsRoutes = require("./routes/projectsRoutes")
@@ -8,14 +8,13 @@ const messageRoutes = require("./routes/messageRoutes")
 const adminRoutes= require("./routes/adminRoutes")
 const dbConnect = require("./config/dbConnector")
 const {authenticateToken}= require("./auth/jwebAdmin")
-const swaggerUi = require("swagger-ui-express")
 const swaggerJsDoc= require("swagger-jsdoc")
-const {fileUrlToPath} = require("url")
+const swaggerUi = require("swagger-ui-express")
 const path = require("path")
-app.use(express.json())
 
+app = createServer()
 
-const swaggerOptions = {
+  const swaggerOptions = {
     definition: {
         openapi: "3.0.0",
         info: {
@@ -38,20 +37,12 @@ const swaggerOptions = {
     ]
 };
 
+
 const swaggerSpecs = swaggerJsDoc(swaggerOptions)
-
-app.get("/", (req, res) =>{
-    return res.status(200).json({
-        message: "Welcome to my site Api"
-    })
-})
-
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs))
-app.use("/auth", userRoutes)
-app.use("/projects",projectsRoutes)
-app.use("/blogs", blogsRoutes)
-app.use("/message", messageRoutes)
-app.use('/admin',  adminRoutes)
+
+
+
 const PORT=process.env.PORT || 5000
 const  hostname="127.0.0.1"
 app.listen(PORT, () =>{
@@ -59,4 +50,4 @@ app.listen(PORT, () =>{
     console.log(`The server is running on port ${PORT}`)
 })
 
-module.exports ={app, path}
+module.exports ={app}

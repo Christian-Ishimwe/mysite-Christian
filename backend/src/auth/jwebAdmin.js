@@ -9,9 +9,12 @@ function authenticateToken(req, res, next) {
   }
   jwt.verify(token, 'your_secret_key', (err, user) => {
     if (err) {
-      return res.status(403).json({
-        message: "Error during the process!"
-      });
+      if(err.name =="TokenExpiredError"){
+            return res.status(403).json({
+              message: "Your session is expired, please signin again!"
+        });
+        }
+      
     }
     req.user = user;
     if(user.email=="christianinja3@gmail.com"){

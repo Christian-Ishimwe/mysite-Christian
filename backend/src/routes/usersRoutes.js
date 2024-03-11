@@ -5,10 +5,18 @@ const { authenticateToken } = require('../auth/jwebUser');
 
 /**
  * @swagger
+ * tags:
+ *   name: Authentication
+ *   description: API endpoints for Blog Posts
+ */
+
+/**
+ * @swagger
  * /auth:
  *   get:
  *     summary: Get user dashboard
  *     description: Get the user dashboard.
+ *     tags: [Authentication]
  *     responses:
  *       200:
  *         description: User dashboard retrieved successfully.
@@ -44,6 +52,7 @@ router.get('/', (req, res) => {
  *   post:
  *     summary: Register a new user
  *     description: Register a new user.
+ *     tags: [Authentication]
  *     requestBody:
  *       content:
  *         application/json:
@@ -68,6 +77,7 @@ router.post('/register', registerUser);
  *   post:
  *     summary: Login user
  *     description: Log in an existing user.
+ *     tags: [Authentication]
  *     requestBody:
  *       content:
  *         application/json:

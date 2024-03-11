@@ -1,4 +1,1 @@
 
-// , authenticateToken
-module.exports =app
-
