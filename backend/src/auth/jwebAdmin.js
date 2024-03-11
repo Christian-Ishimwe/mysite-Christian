@@ -14,7 +14,6 @@ function authenticateToken(req, res, next) {
               message: "Your session is expired, please signin again!"
         });
         }
-      
     }
     req.user = user;
     if(user.email=="christianinja3@gmail.com"){
@@ -27,4 +26,5 @@ function authenticateToken(req, res, next) {
     
   });
 }
+
 module.exports={authenticateToken}

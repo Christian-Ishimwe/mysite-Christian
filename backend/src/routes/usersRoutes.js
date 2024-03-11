@@ -2,7 +2,7 @@ const express = require('express');
 const { registerUser, loginUser } = require('../controllers/usersControllers');
 const router = express.Router();
 const { authenticateToken } = require('../auth/jwebUser');
-
+const {validateUserRegistration, validateUserLogin} = require("../validators/users.validators")
 /**
  * @swagger
  * tags:
@@ -59,9 +59,13 @@ router.get('/', (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               name:
+ *                 type: string
+ *               email:
  *                 type: string
  *               password:
+ *                 type: string
+ *               confirmPassword:
  *                 type: string
  *     responses:
  *       200:
@@ -69,7 +73,7 @@ router.get('/', (req, res) => {
  *       400:
  *         description: Bad request.
  */
-router.post('/register', registerUser);
+router.post('/register', validateUserRegistration, registerUser);
 
 /**
  * @swagger
@@ -94,6 +98,6 @@ router.post('/register', registerUser);
  *       401:
  *         description: Unauthorized.
  */
-router.post('/login', loginUser);
+router.post('/login',validateUserLogin, loginUser);
 
 module.exports = router;

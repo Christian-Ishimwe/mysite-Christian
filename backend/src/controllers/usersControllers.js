@@ -1,11 +1,11 @@
-// const users= require("../constants/Users")
+
 const bcrypt= require("bcrypt")
 const jwt= require("jsonwebtoken")
 const {dbConnector}= require("../config/dbConnector")
 
 const User = require("../models/usersModel")
 const registerUser= async (req, res) =>{
-    let {name, email, password} = req.body
+    const { email, password, name } = req.body;
     const currentUser= await User.findOne({email})
     if(!currentUser){
     let hashedpassword= await bcrypt.hash(password, 10)
