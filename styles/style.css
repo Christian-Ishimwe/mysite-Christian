@@ -231,12 +231,18 @@ form button:hover{
     color: #000;
     opacity: 0.9;
 }
+.disabled{
+    background-color: gray;
+    color: #fff;
+    
+}
 footer{
     display: flex;
     justify-content: space-between;
     padding: .4rem  4rem;
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    width: 100%;
     box-shadow: 2px 2px 5px #a6a1a1;
     background: #e0dddd;
     place-items: center;
@@ -344,18 +350,15 @@ div.blog_summary{
     /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 .porto_card {
-
+    font-weight: 600;
     position: relative;
     width: 300px;
     height: 200px;
-    margin: 20px;
+    /* margin: 20px; */
     background-color:var(--secondary-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-  }
-  .porto_card img{
-    width: 100%;
   }
   .porto_card:hover {
     transform: translateY(-5px);
@@ -364,7 +367,7 @@ div.blog_summary{
   .porto_card img {
     width: 100%;
     height: 100%;
-   
+    filter: blur(1px);
     object-fit: cover;
   }
   
@@ -375,7 +378,7 @@ div.blog_summary{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    color:var(--secondary-color);
+    color:#000;
     opacity: 0;
     padding: .3rem ;
     transition: opacity 0.3s ease;
@@ -383,6 +386,7 @@ div.blog_summary{
   
   .porto_card:hover .porto_summary {
     opacity: 1;
+    color: var(--secondary-color);
   }
   
   .porto_name {
@@ -406,7 +410,7 @@ div.blog_summary{
  }
  .porto__container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
  }
  
 

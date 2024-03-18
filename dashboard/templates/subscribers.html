@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-    
+    <script src="../scripts/validateuser.js"></script>
     <title>Dashboard - Home</title>
     <style>
         .actions {
@@ -74,6 +74,7 @@ tr:hover {
             <ul>
                 <div>
                     <li><a href="../index.html"><i class="ri-home-3-line"></i>Home</a></li>
+                    <li><a href="../../index.html"><i class="ri-global-fill"></i>Website</a></li>
                     <li><a href="./blogs.html"><i class="ri-article-line"></i>Blogs</a></li>
                     <li><a href="./portofolio.html"><i class="ri-profile-fill"></i>Portofolio</a></li>
                     <li><a href=""><i class="ri-folder-user-line"></i>Users</a></li>
@@ -102,7 +103,7 @@ tr:hover {
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Comments</th>
+                        
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -113,43 +114,10 @@ tr:hover {
 
         </main>
     </div>
+<script src="../scripts/Users.js"></script>
 <script src="../scripts/scripts.js"></script>
 <script>
-    const users= JSON.parse(localStorage.getItem("Users")) || []
-    const tbody= document.querySelector("tbody")
-    console.log(users)
-    tbody.innerHTML=""
-    users.forEach((user,index) =>{
-        tbody.innerHTML+=` 
-            <tr>
-                
-                <td>${index + 1}</td>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>${users.length}</td>
-                <td class='actions'>
-                    <i class="ri-delete-bin-7-fill delete" onclick="deleteUser(${user.id})"></i><td>
-                        
-                    </tr>
-                   `
-                   <!-- <i class="ri-eye-line view" onclick="viewUser(${user.id})"></i> -->
-        
-        
-    })
-
-    function deleteUser(id){
-        currentUser= users.find((user) => user.id == id)
-        let permission= confirm(`Are you sure delete ${currentUser.email} ?`)
-        if(permission){
-            new_users= users.filter((user) => user!=currentUser)
-            localStorage.setItem("Users",  JSON.stringify(new_users))
-            alert("User Deleted Successful!")
-            
-        }
-    }
-
-
-
+  
 </script>
 </body>
 </html>

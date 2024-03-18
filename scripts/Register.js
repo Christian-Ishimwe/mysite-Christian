@@ -7,7 +7,7 @@ const err= document.querySelector(".err")
 let passworErr = document.querySelector(".field-set .cspan");
 let passwordErr = document.querySelector(".field-set .span");
 let users= JSON.parse(localStorage.getItem('Users')) || []
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (confirmpassword.value !== password.value) {
         passworErr.innerHTML = "Password Must Match";
@@ -18,27 +18,40 @@ registerForm.addEventListener("submit", (event) => {
     }
 
     let new_user = {
-        id: Date.now(),
         email: email.value,
         password: password.value,
-        comments: [],
         dateJoined: Date().toLocaleUpperCase,
         name: nameField.value,
     };
-    let currentUser = users.find(
-        (element) =>
-            element["email"] ===email.value
-            
-    );
-    if (currentUser) {
+    const subBtn = document.getElementById("subBtn")
+    subBtn.disabled = true; // Disable the button
+    subBtn.innerText = 'Loading...'; // Change the text
+    subBtn.classList.toggle('disabled')
+    let UserResponse = await registerUser(new_user)
+    console.log(UserResponse)
+    if(UserResponse.status == 409){
         err.style.display="block"
-        return;
+        err.innerHTML=UserResponse.message
+       
     }
-    users.push(new_user);
-    localStorage.setItem("Users", JSON.stringify(users));
-    alert("User successfully registered");
-    window.location.href = "http://127.0.0.1:5500/login.html";
-});
+    else if(UserResponse.status==201){
+        err.innerHTML=UserResponse.message
+        alert("Done")
+        err.style.backgroundColor ='green'
+        
+    }
+    else{
+        err.style.display="block"
+        err.innerHTML=UserResponse.message
+    }
+     setTimeout(function() {
+        subBtn.innerText = 'Sign up'// Change the text
+        subBtn.classList.toggle('disabled')
+        subBtn.disabled=false
+      }, 2000); 
+    }
+    
+);
 
 
 
@@ -81,3 +94,20 @@ password.addEventListener("input", () => {
         passwordErr.innerHTML = "";
     }
 });
+
+
+async function registerUser(user){
+    try{
+        const response = await fetch('https://mysite-backend-wdua.onrender.com/auth/register', {
+             method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+            })
+        const data = await response.json()
+        return data
+    }catch(err){
+        console.log("error: ", err)
+    }
+}

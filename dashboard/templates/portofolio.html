@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/style.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+     <script src="../scripts/validateuser.js"></script>
     <title>My Projects - My Site</title>
   </head>
   <body>
@@ -19,6 +21,7 @@
             <li>
               <a href="../index.html"><i class="ri-home-3-line"></i>Home</a>
             </li>
+            <li><a href="../../index.html"><i class="ri-global-fill"></i>Website</a></li>
             <li>
               <a href="./blogs.html"><i class="ri-article-line"></i>Blogs</a>
             </li>
@@ -56,6 +59,10 @@
           </header>
           <div id="projects-container"></div>
           <div class="new-blog__form">
+            <div class="projects__notify" id="notify_msg">
+              This is the notification
+            </div>
+          
             <form id="portfolio-form" onsubmit="projectForm()">
               <label for="title">Title:</label>
               <input
@@ -98,7 +105,7 @@
                 name="languages"
                 required
               /><br /><br />
-              <button type="submit">Add Portfolio Item</button>
+              <button type="submit" id="subBtn">Add Portfolio Item</button>
             </form>
           </div>
         </div>

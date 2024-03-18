@@ -53,7 +53,8 @@ window.addEventListener("DOMContentLoaded", () =>{
         `
     }
 
-    contactForm.addEventListener("submit", (event) =>{
+    contactForm.addEventListener("submit",async (event) =>{
+        const subBtn = document.getElementById('subBtn')
         
         event.preventDefault()
         const nameField = document.getElementById("name").value
@@ -65,22 +66,50 @@ window.addEventListener("DOMContentLoaded", () =>{
         let currentDate= new Date()
 
         let new_msg= {
-            id: `msg_${Date.now()}`,
             name: nameField,
             email: emailField,
-            tel: tel,
+            telephone: tel,
             subject: subject,
             message: message,
             replied: false,
             reply: null,
             dateAdded: `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`
         }
-        messages.push(new_msg)
-        localStorage.setItem("Messages", JSON.stringify(messages))
-        notify.style.display="block"
+        subBtn.classList.toggle('disabled')
+        subBtn.innerText='loading...'
+        const newMessage = await FetchsendMessage(new_msg)
+        if(newMessage.status==201){
+            notify.style.display="block"
+            notify.innerText=newMessage.message
+        }else{
+            notify.style.display="block"
+            notify.style.backgroundColor='red'
+            notify.innerText=newMessage.message
+        }
+       
         setTimeout(function(){
             notify.style.display="none"
+            subBtn.innerText='Send'
+            subBtn.classList.toggle('disabled')
         }, 10000)
         contactForm.reset()
     })
 })
+
+
+
+async function FetchsendMessage(message){
+    try{
+        const response = await fetch("https://mysite-backend-wdua.onrender.com/message", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(message)
+            });
+        const data = await response.json()
+        return data
+    }catch(err){
+        console.log(err)
+    }
+}

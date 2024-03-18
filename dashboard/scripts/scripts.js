@@ -1,8 +1,19 @@
-var blogs= JSON.parse(localStorage.getItem('Blogs')) || []
 var projects=JSON.parse(localStorage.getItem("Projects")) || []
 let blogContainer = document.querySelector(".blog__list")
 let messages= JSON.parse(localStorage.getItem("Messages")) || []
-window.addEventListener("DOMContentLoaded", () =>{
+window.addEventListener("DOMContentLoaded", async () =>{
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    if(!currentUser || currentUser.email!='christianinja3@gmail.com'){
+        alert("You are not allowed to access this Dashboard")
+        window.location.href="http://localhost:5500/index.html"
+        
+    }
+    const token = currentUser.token
+    const allUsers =(await fetchAllUsers(token))['users']
+    let userLength = allUsers.length
+    document.querySelector('.numbers_subscribers').textContent=userLength
+    let currentBlogs = await fetchBlogs()
+    let blogs = currentBlogs['blogs']
     document.getElementById('openNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.add('open');
              document.getElementById('closeNav').style.display="inherit"
@@ -15,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () =>{
             });
        document.querySelector(".notifications p").innerHTML=`You have ${messages.length} Unreaded Messages`
 
-
+    
   let blogLen=blogs.length
   try{
     renderBlog()
@@ -55,6 +66,38 @@ function projectForm(event){
 
 }
 
+
+
+async function fetchBlogs() {
+    try {
+        const response = await fetch('https://mysite-backend-wdua.onrender.com/blogs');
+        if (!response.ok) {
+            throw Error("There was an error fetching the Blogs!");
+        }
+        const data = await response.json();
+
+        return data
+    } catch (err) {
+        console.log(err);
+    }
+    
+}
+
+
+async function fetchAllUsers(token){
+    try{
+    const response = await fetch('https://mysite-backend-wdua.onrender.com/admin/users', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+        })
+    const data = response.json()
+    console.log("Fetching data")
+    return data
+    }catch(err){
+        console.log(err)
+}
+}
 
 
 

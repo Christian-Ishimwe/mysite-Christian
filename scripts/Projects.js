@@ -1,5 +1,12 @@
 const projectContainer= document.querySelector('.porto__container')
-const projects = JSON.parse(localStorage.getItem('Projects')) || []
+let projects =[]
+window.addEventListener("DOMContentLoaded", async() =>{
+    let currentprojects= await fetchProjects()
+    projects=currentprojects['projects']
+    renderProjects()
+    console.log(projects)
+})
+
 function renderProjects(){
     projectContainer.innerHTML = "";
     projects.forEach((site) =>{
@@ -7,7 +14,7 @@ function renderProjects(){
         card.classList.add("porto_card");
         card.id = "porto_project1";
         const image = document.createElement("img");
-        image.src =`./dashboard/assets/${site.image}`
+        image.src =`${site.image}`
         image.alt = "Project 1";
         const summary = document.createElement("div");
         summary.classList.add("porto_summary");
@@ -27,4 +34,18 @@ function renderProjects(){
 }
 
 
+async function fetchProjects() {
+    try {
+        const response = await fetch('https://mysite-backend-wdua.onrender.com/projects');
+        if (!response.ok) {
+            throw Error("There was an error fetching the Blogs!");
+        }
+        const data = await response.json();
+
+        return data
+    } catch (err) {
+        console.log(err);
+    }
+    
+}
 renderProjects()

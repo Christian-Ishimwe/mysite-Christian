@@ -8,7 +8,10 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <script src="../scripts/validateuser.js"></script>
+    <script src="../scripts/blogs.js" defer></script>
     <script src="../scripts/scripts.js" defer></script>
+
     <title>Blogs - Home</title>
   </head>
   <body>
@@ -21,9 +24,12 @@
               <a href="../index.html"><i class="ri-home-3-line"></i>Home</a>
             </li>
             <li>
-              <a href="./templates/blogs.html"
-                ><i class="ri-article-line"></i>Blogs</a
+              <a href="../../index.html"
+                ><i class="ri-global-fill"></i>Website</a
               >
+            </li>
+            <li>
+              <a href="#"><i class="ri-article-line"></i>Blogs</a>
             </li>
             <li>
               <a href="./portofolio.html"
@@ -60,6 +66,7 @@
           </header>
           <ul class="blog__list"></ul>
           <div class="new-blog__form">
+            <span id="notify_msg">Blog Added Successful</span>
             <form action="post" id="newBlogForm">
               <input type="text" name="title" placeholder="Title" required />
               <textarea
@@ -87,7 +94,7 @@
                 name="comments"
                 value="comments"
               />
-              <button type="submit">Create Blog</button>
+              <button type="submit" id="createBtn">Create Blog</button>
             </form>
           </div>
         </div>

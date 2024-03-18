@@ -3,27 +3,75 @@ const loginPassword = document.getElementById("loginPassword");
 const loginEmail = document.getElementById("loginEmail");
 const loginForm = document.getElementById("loginForm");
 const err= document.querySelector(".err")
+const subBtn = document.getElementById('subBtn')
 let users =JSON.parse(localStorage.getItem("Users")) ||  [];
 
 
-loginForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    let currentUser = users.find(
-        (element) =>
-            element["email"] === loginEmail.value &&
-            element["password"] === loginPassword.value
-    );
-    if (currentUser) {
-        if(currentUser['email']=="christianinja3@gmail.com" && currentUser['password'] == 'karire2020.'){
-            window.location.href = "http://127.0.0.1:5500/dashboard/index.html";
-            return;
+    let email = loginEmail.value.trim()
+    let password = loginPassword.value.trim()
+    subBtn.classList.toggle('disabled')
+    subBtn.innerText="loading..."
+    subBtn.disabled=true
+    const user = await fetchloginUser(email, password)
+    if(user){
+        const token = user['token']
+        const name= user['name']
+        const email = user['email']
+        const userDetails= {
+            token,
+            name, 
+            email
         }
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-        alert(`${currentUser['name']} Successvul Signed In`)
-        window.location.href = "http://127.0.0.1:5500/index.html";
+        localStorage.setItem('currentUser',JSON.stringify(userDetails))
+        if(email=="christianinja3@gmail.com"){
+          err.style.display="block"
+            err.style.backgroundColor="green"
+            err.style.padding='0.4rem'
+            err.innerText="Successful signed in, You will be redirected to Dashboard!"
+            setTimeout(() =>{
+              window.location.href = ("http://127.0.0.1:5500/dashboard/index.html")
+            }, 4000)
+            
+        }else{
+            err.style.display="block"
+            err.style.backgroundColor="green"
+            err.innerText="Successful signed in, You will be redirected to homepage!"
+            setTimeout(() =>{
+              window.location.href = ("http://127.0.0.1:5500/index.html")
+            }, 4000)
+           
+        }
+    }else {
+         err.style.display="block"
     }
-    else {
-        err.style.display="block"
-    }
+    setTimeout(()=>{
+      subBtn.classList.toggle('disabled')
+      subBtn.innerText='Sign in'
+      subBtn.disabled=false
+    }, 2000)
 });
+
+
+async function fetchloginUser(email, password){
+        try {
+          const response = await fetch("https://mysite-backend-wdua.onrender.com/auth/login", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+            });
+          if (!response.ok) {
+            console.log(response.json())
+            throw Error("There was an error fetching the Blogs!");
+          }
+          const data = await response.json();
+          console.log(data);
+          return data;
+        } catch (err) {
+          console.log(err);
+        }
+}
 
