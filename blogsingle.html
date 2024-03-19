@@ -196,7 +196,7 @@
             
 
             const descriptionElement = document.createElement('p');
-            descriptionElement.textContent = blog.description;
+            descriptionElement.innerHTML = blog.content;
             blogDiv.appendChild(descriptionElement);
             blogContainer.appendChild(blogDiv);
            
