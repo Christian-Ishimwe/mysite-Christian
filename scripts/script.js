@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     fetchData()
     const loginLink = document.getElementById("loginButton");
     const logoutLink = document.getElementById("logoutButton");
@@ -10,6 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         logoutLink.style.display = "none";
         loginLink.style.display = "inline-block";
+    }
+    let navigation = document.querySelector('nav ul')
+    if(currentUser.email == "christianinja3@gmail.com"){
+        var listItem = document.createElement("li");
+        var link = document.createElement("a");
+        link.setAttribute("href", "./dashboard/index.html");
+        link.textContent = "Dashboard";
+        listItem.appendChild(link);
+        navigation.appendChild(listItem);
     }
 });
 

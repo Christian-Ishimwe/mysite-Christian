@@ -122,8 +122,7 @@ const deleteMessage = async (_id) => {
 function getToken(){
     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
     if(!currentUser || currentUser.email!='christianinja3@gmail.com'){
-        alert("You are not allowed to access this Dashboard")
-        window.location.href="http://localhost:5500/index.html"
+        window.location.href="https://christian-ishimwe.github.io/mysite-Christian/dashboard/not_allowed.html"
         
     }
     var token = currentUser.token

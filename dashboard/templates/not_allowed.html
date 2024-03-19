@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Allowed</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.icon {
+  color: #f44336;
+}
+
+h1 {
+  color: #333;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <i class="fas fa-exclamation-triangle fa-5x icon"></i>
+      <h1>Access Denied</h1>
+      <p>You are not allowed to access this page.</p>
+      <a href="#" id="goBack">Go Back</a>
+    </div>
+    <script>
+        document.getElementById('goBack').addEventListener('click', function (event) {
+                event.preventDefault();
+                history.back();
+            });
+
+    </script>
+  </body>
+</html>
