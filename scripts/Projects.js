@@ -1,6 +1,11 @@
 const projectContainer= document.querySelector('.porto__container')
 let projects =[]
 window.addEventListener("DOMContentLoaded", async() =>{
+    projectContainer.innerHTML=  `
+            <div style="display: flex; justify-content: center; align-items: center; height:20vh;">
+                <div style="border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: #333; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+            </div>
+`
     let currentprojects= await fetchProjects()
     projects=currentprojects['projects']
     renderProjects()

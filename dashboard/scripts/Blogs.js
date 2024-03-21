@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", async () =>{
         window.location.href="https://christian-ishimwe.github.io/mysite-Christian/dashboard/not_allowed.html"  
     }
     var token = currentUser.token
+    blogContainers
     let currentblogs = await fetchBlogs(token)
     blogs = currentblogs
     console.log(blogs)
@@ -102,43 +103,6 @@ form.addEventListener("submit", async (event) => {
         console.error('Error:', error);
     }
 });
-
-
-
-// form.addEventListener("submit", (event) => {
-//             event.preventDefault();
-//             var title = form.querySelector('input[name="title"]').value;
-//             var summary = form.querySelector('textarea[name="summary"]').value;
-//             var description = form.querySelector('textarea[name="description"]').value;
-//             var image = form.querySelector('input[name="image"]');
-//             var published = form.querySelector('input[name="published"]').checked;
-//             var commentsAllowed = form.querySelector('input[name="comments"]').checked;
-//             var id = "blog_" + Date.now();
-//             var blogPost = {
-//                 id: id,
-//                 title: title,
-//                 dateAdded: Date().toLocaleUpperCase(),
-//                 summary: summary,
-//                 description: description,
-//                 image: image.files[0].name,
-//                 published: published,
-//                 commentsAllowed: commentsAllowed
-//             };
-//             blogs.push(blogPost)
-//             localStorage.setItem('Blogs', JSON.stringify(blogs));
-//             form.reset();
-//             window.location.reload()
-//     })
-
-// const deleteBlog = (id) => {
-//   let per = confirm("Are you sure you want to delete this blog?");
-//   if (per) {
-//     blogs = blogs.filter(element => element.id !== id);
-//     localStorage.setItem("Blogs", JSON.stringify(blogs))
-//     renderBlog();
-//   }
-// };
-
 
 
 async function fetchBlogs(token) {
