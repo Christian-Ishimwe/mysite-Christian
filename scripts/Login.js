@@ -30,17 +30,15 @@ loginForm.addEventListener("submit", async (event) => {
             err.style.backgroundColor="green"
             err.style.padding='0.4rem'
             err.innerText="Successful signed in, You will be redirected to Dashboard!"
-            setTimeout(() =>{
-              window.location.href = ("http://127.0.0.1:5500/dashboard/index.html")
-            }, 4000)
+            window.location.href = ("https://christian-ishimwe.github.io/mysite-Christian/index.html")
+           
             
         }else{
             err.style.display="block"
             err.style.backgroundColor="green"
             err.innerText="Successful signed in, You will be redirected to homepage!"
-            setTimeout(() =>{
-              window.location.href = ("http://127.0.0.1:5500/index.html")
-            }, 4000)
+            window.location.href = ("https://christian-ishimwe.github.io/mysite-Christian/index.html")
+            
            
         }
     }else {
