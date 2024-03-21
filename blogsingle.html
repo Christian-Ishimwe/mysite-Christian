@@ -209,8 +209,8 @@
             blogContainer.appendChild(blogDiv);
            
             const comment_container = document.querySelector('.comment_container')
-             const currentUser = localStorage.getItem('currentUser')
-            if(blog.allowComments){
+             const currentUser =JSON.parse( localStorage.getItem('currentUser'))
+             if(blog.allowComments){
                 comment_container.innerHTML=`
                     <h2>Comments</h2>
                     <form class="comment-form" id="commentForm">
@@ -248,12 +248,13 @@
             formComment.addEventListener("submit",  async (event)=>{
                 event.preventDefault()
                 let newComment ={
-                    name: document.getElementById('name').value,
+                    name: currentUser.name,
                     comment: document.querySelector('textarea').value
                 }
+                console.log(newComment)
                 const userData = await CreateComment(blogId, currentUser.name, newComment.comment, currentUser.token )
                 if(userData){
-                    window.location.reload()
+                    <!-- window.location.reload() -->
                 }
             })
            
