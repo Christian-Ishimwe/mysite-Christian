@@ -10,7 +10,11 @@ window.addEventListener("DOMContentLoaded", async () =>{
         window.location.href="https://christian-ishimwe.github.io/mysite-Christian/dashboard/not_allowed.html"  
     }
     var token = currentUser.token
-    blogContainers
+    blogContainer.innerHTML= `
+            <div style="display: flex; justify-content: center; align-items: center; height:20vh;">
+                <div style="border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: #333; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+            </div>
+                `
     let currentblogs = await fetchBlogs(token)
     blogs = currentblogs
     console.log(blogs)

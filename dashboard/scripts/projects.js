@@ -1,9 +1,15 @@
 const pForm= document.getElementById("portfolio-form")
+let projectsContainer = document.getElementById('projects-container');
 let projects=JSON.parse(localStorage.getItem("Projects")) || []
 let subBtn= document.getElementById("subBtn")
 let   notify= document.getElementById('notify_msg')
 window.addEventListener('DOMContentLoaded', async ()=>{
     updateProject()
+    projectsContainer.innerHTML=`
+            <div style="display: flex; justify-content: center; align-items: center; height:20vh;">
+                <div style="border: 4px solid rgba(0, 0, 255, 0.1); border-left-color: #333; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+            </div>
+    `
     await fetchandUpdateProjects()
      document.getElementById('openNav').addEventListener('click', function () {
             document.querySelector('nav ul').classList.add('open');
@@ -88,10 +94,11 @@ async function fetchandUpdateProjects(){
     console.log(err)
   }
 }
-//      
+//
+
 async function updateProject(projects){
     if(projects){
-         const projectsContainer = document.getElementById('projects-container');
+    projectsContainer.innerHTML=''
     projects.forEach(project => {
     const projectCard = document.createElement('div');
     projectCard.classList.add('pcard');
