@@ -231,6 +231,7 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
+
 #projects-container{
     display: flex;
     flex-wrap: wrap;

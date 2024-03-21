@@ -61,8 +61,11 @@ form.addEventListener("submit", async (event) => {
     var summary = form.querySelector('textarea[name="summary"]').value;
     var description = form.querySelector('textarea[name="description"]').value;
     var image = form.querySelector('input[name="image"]').files[0];
-    var published = form.querySelector('input[name="published"]').checked;
-    var commentsAllowed = form.querySelector('input[name="comments"]').checked;
+   var publishedInput = form.querySelector('input[name="published"]');
+  var commentsInput = form.querySelector('input[name="comments"]');
+
+  var published = publishedInput ? publishedInput.checked : false;
+  var commentsAllowed = commentsInput ? commentsInput.checked : false;
     var formData = new FormData();
     formData.append('title', title);
     formData.append('summary', summary);

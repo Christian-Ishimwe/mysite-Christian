@@ -106,11 +106,11 @@
         blogDiv.appendChild(summaryElement);
 
         const descriptionElement = document.createElement("p");
-        descriptionElement.textContent = blog.description;
+        descriptionElement.textContent = blog.content;
         blogDiv.appendChild(descriptionElement);
 
         const dateAdded = document.createElement("p");
-        dateAdded.textContent = `Date Added: ${blog.date}`;
+        dateAdded.textContent = `Date Added: ${blog.date.split('T')[0]}`;
         blogDiv.appendChild(dateAdded);
 
         const publishedElement = document.createElement("p");
