@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', async () =>{
     `
    let projects = await fetchBlogs()
    console.log(projects)
-   
+   console.log(projects)
    let blogs= projects['blogs']
    renderBlog(blogs)
 });
@@ -20,7 +20,6 @@ async function fetchBlogs() {
             throw Error("There was an error fetching the Blogs!");
         }
         const data = await response.json();
-
         return data
     } catch (err) {
         console.log(err);

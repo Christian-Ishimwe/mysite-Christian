@@ -3,14 +3,12 @@ let blogContainer = document.querySelector(".blog__list")
 let messages= JSON.parse(localStorage.getItem("Messages")) || []
 window.addEventListener("DOMContentLoaded", async () =>{
     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    // if(!currentUser || currentUser.email!='christianinja3@gmail.com'){
-    //     alert("You are not allowed to access this Dashboard")
-    //     window.location.href="http://localhost:5500/index.html"
-        
-    // }
     const token = currentUser.token
     const allUsers =(await fetchAllUsers(token))['users']
+    const allProjects = await fetchAllProjects(token)
     let userLength = allUsers.length
+    let projectLengths = allProjects.length
+    console.log(projectLengths)
     document.querySelector('.numbers_subscribers').textContent=userLength
     let currentBlogs = await fetchBlogs()
     let blogs = currentBlogs['blogs']
@@ -33,7 +31,7 @@ window.addEventListener("DOMContentLoaded", async () =>{
   }
   finally{
       document.getElementById("numBlogs").textContent=blogLen
- document.getElementById("numPortofolio").textContent= projects.length
+    document.getElementById("numPortofolio").textContent=projectLengths
   
   }
 
@@ -99,6 +97,23 @@ async function fetchAllUsers(token){
 }
 }
 
+
+async function fetchAllProjects(token){
+  try{
+    const response = await fetch('https://mysite-backend-wdua.onrender.com/admin/projects', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    const data = await response.json()
+    if(data.status==200){
+       return data.projects
+    }
+  }
+  catch(err){
+    console.log(err)
+  }
+}
 
 
 
