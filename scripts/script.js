@@ -5,11 +5,11 @@ window.addEventListener("DOMContentLoaded", () => {
     const logoutLink = document.getElementById("logoutButton");
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser) {
-        logoutLink.style.display = "inline-block";
+        logoutLink.style.display = "initial";
         loginLink.style.display = "none";
     } else {
         logoutLink.style.display = "none";
-        loginLink.style.display = "inline-block";
+        loginLink.style.display = "initial";
     }
     let navigation = document.querySelector('nav ul')
     if(currentUser.email == "christianinja3@gmail.com"){

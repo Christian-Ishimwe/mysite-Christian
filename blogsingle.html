@@ -223,9 +223,9 @@
                         </div>
                     </div>
                 `
-               
+                let submitBtn = document.getElementById("submitBtn")
                 if(!currentUser){
-                    const submitBtn =document.getElementById("submitBtn")
+                   let submitBtn = document.getElementById("submitBtn")
                     submitBtn.disabled=true
                     submitBtn.style.backgroundColor='gray'
                     submitBtn.style.cursor=''
@@ -236,7 +236,12 @@
                     nameUser.value=currentUser.name
                 }
                 const comment_comments = document.getElementById('comments_users')
-                blog['comments'].forEach(comm =>{
+                let allblogsComments = blog['comments']
+                let currentBlogs =allblogsComments
+                if(allblogsComments.length>5){
+                  currentBlogs=allblogsComments.slice(0, 5);
+                }
+                currentBlogs.forEach(comm =>{
                     comment_comments.innerHTML+=`
                             <strong>${comm.name}</strong>
                             <p>${comm.comment}</p>
@@ -245,6 +250,7 @@
             }
 
             const formComment = document.querySelector('form')
+           
             formComment.addEventListener("submit",  async (event)=>{
                 event.preventDefault()
                 let newComment ={
@@ -252,6 +258,8 @@
                     comment: document.querySelector('textarea').value
                 }
                 console.log(newComment)
+                let submitBtn = document.getElementById("submitBtn")
+                submitBtn.innerHTML='Commenting...'
                 const userData = await CreateComment(blogId, currentUser.name, newComment.comment, currentUser.token )
                 if(userData){
                     <!-- window.location.reload() -->
@@ -270,7 +278,7 @@
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ comment })
+                    body: JSON.stringify({ name,comment })
                 });
 
                 if (!response.ok) {
