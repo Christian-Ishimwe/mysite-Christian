@@ -32,11 +32,10 @@ registerForm.addEventListener("submit", async (event) => {
     if(UserResponse.status == 409){
         err.style.display="block"
         err.innerHTML=UserResponse.message
-       
     }
     else if(UserResponse.status==201){
         err.innerHTML=UserResponse.message
-        alert("Done")
+        err.style.display="block"
         err.style.backgroundColor ='green'
         
     }
